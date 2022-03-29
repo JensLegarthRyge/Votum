@@ -1,7 +1,7 @@
-package Services;
+package services;
 
-public class EmailService {
-    public static boolean isEmailValid(String email){
+public class PasswordService {
+    public static boolean isPasswordValid(String email){
         if (email.contains("@") && email.contains(".")){
             return true;
         } else
