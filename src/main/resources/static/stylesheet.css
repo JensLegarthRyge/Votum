@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    font-family: Futura, sans-serif;
+    background-color: rgb(229,227,216);
 }
 
 .burger-bar {
@@ -40,7 +42,6 @@ body {
 }
 
 .footer {
-
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -53,4 +54,8 @@ body {
     font-size: 15px;
     color: white;
     text-decoration: none;
+}
+
+h1.shadow{
+    text-shadow: #a1a097 5px 5px;
 }
