@@ -1,5 +1,7 @@
 package Model.Repositories;
 
+import Model.Wishlist;
+
 import java.sql.*;
 import java.util.ArrayList;
 
