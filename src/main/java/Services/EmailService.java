@@ -1,4 +1,4 @@
-package services;
+package Services;
 
 public class EmailService {
     public static boolean isEmailValid(String email){

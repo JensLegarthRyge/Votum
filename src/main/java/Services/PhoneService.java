@@ -1,4 +1,4 @@
-package services;
+package Services;
 
 public class PhoneService {
     public static boolean isPhoneNumberValid(String number){
