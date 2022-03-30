@@ -6,14 +6,57 @@
     <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
 </head>
 <body>
-        <section class="content">
-            <h1>Vōtum</h1>
+        <header class="burger-bar">
+            <a>
+                <div class="log-in">
+                    <button type="button" onclick="openLoginForm()">Log in</button>
+                </div>
+            </a>
+            <a>
+                <div class="opret-profil">
+                    <button type="button" onclick="openCreateProfileForm">Opret profil</button>
+                </div>
+            </a>
+        </header>
 
+        <section class="popup">
+            <div class="login-popup-form" id="loginPopupForm">
+                <form action="action.php" class="form-container">
+                    <h1>Login</h1>
+                    <label>
+                        <b>Email</b>
+                    </label>
+                    <input type="text" placeholder="Indtast Email" name="login-email" required></label>
+                </form>
+            </div>
+            <div class="create-profile-form" id="createProfilePopupForm">
+                <form action=""></form>
+            </div>
 
         </section>
+        <section class="content">
+            <h1>Vōtum</h1>
+                <div class="flavor-text">
+                    <p>Velkommen til Vōtum, din personlige ønskeliste hjemmeside.</p>
+                    <p>Siden er gratis og kræver ikke meget for at oprette.</p>
+                    <p>Opret en profil for at komme i gang.</p>
+                </div>
+        </section>
         <footer>
+            <div class="footer">
+                <a href="https://www.youtube.com/watch?v=uUbHV3pbhx0">Privatlivspolitik</a>
+                <a href="https://www.youtube.com/watch?v=25yaXwEhzpk">Kontakt</a>
 
+            </div>
         </footer>
 
+<script>
+    function openLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "block";
+    }
+    function openCreateProfileForm() {
+        document.getElementById("loginPopupForm").style.display = "block";
+    }
+</script>
 </body>
 </html>
