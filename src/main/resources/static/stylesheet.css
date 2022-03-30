@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+.burger-bar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.burger-bar a {
+    float: right;
+    padding: 14px 10px;
+    text-decoration: none;
+}
+
+.burger-bar button {
+    width: 100px;
+    text-decoration: none;
+}
+
+.content {
+    align-items: flex-start;
+}
+
+.content h1 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 200px;
+    text-align: center;
+}
+
+.flavor-text {
+    margin: auto;
+    width: 35%;
+    padding: 10px;
+}
+
+.content p {
+    text-align: left;
+}
+
+.footer {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+}
+
+.footer a {
+    float: right;
+    padding: 14px 10px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+}
