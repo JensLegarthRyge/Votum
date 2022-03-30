@@ -1,5 +1,6 @@
 package Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
@@ -11,11 +12,18 @@ public class User {
     private String lastName;
     private String phoneNumber;
 
-    public User(int userID, String email, String password, Date birthDate, String firstName, String lastName, String phoneNumber) {
+    public User(int userID, String email, String password, String birthdate, String firstName, String lastName, String phoneNumber) {
         this.userID = userID;
         this.email = email;
         this.password = password;
-        this.birthDate = birthDate;
+
+        String[] birthdayArray = birthdate.split("-");
+        int year = Integer.parseInt(birthdayArray[0])-1900;
+        int month = Integer.parseInt(birthdayArray[1])-1;
+        int day = Integer.parseInt(birthdayArray[2]);
+
+        this.birthDate = new Date(year,month,day);
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -32,5 +40,30 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getBirthDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(birthDate);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }

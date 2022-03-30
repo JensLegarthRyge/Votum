@@ -15,15 +15,6 @@ public class DatabaseConnectionManager {
         return con;
     }
 
-    public void connectTo(){
-        try {
-            //Get a connection to the database for a user named root with password admin
-            con = DriverManager.getConnection("jdbc:mysql://votum.mysql.database.azure.com:3306/votum", "rootuser@votum", "JJMdat21a");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void disconnectFrom(){
         try {
             con.close();

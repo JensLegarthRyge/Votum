@@ -1,5 +1,6 @@
 package Model.Repositories;
 
+import Model.User;
 import Model.Wishlist;
 
 import java.sql.*;
@@ -30,6 +31,22 @@ public class WishlistRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } return allWishLists;
+    }
+
+    public void addWishlistToDatabase(String title, int userID){
+        try {
+            Connection con = dcm.getConnectionToDatabase();
+            Statement stmt = con.createStatement();
+
+            String query = "INSERT INTO `votum`.`wishlists` (`FK_user_id`, `title`) "
+                    + "VALUES ('"+userID+"', '"+title+"');";
+
+            stmt.executeUpdate(query);
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

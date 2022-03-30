@@ -31,4 +31,28 @@ public class Wish {
                 ", FKWishlistID=" + FKWishlistID +
                 '}';
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public int getFKWishlistID() {
+        return FKWishlistID;
+    }
 }

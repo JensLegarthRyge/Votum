@@ -39,4 +39,30 @@ public class WishRepository {
             e.printStackTrace();
         } return allWishes;
     }
+
+    public void addWishToDatabase(Wish wish){
+        try {
+            Connection con = dcm.getConnectionToDatabase();
+            Statement stmt = con.createStatement();
+
+            String title = wish.getTitle();
+            double price = wish.getPrice();
+            String link = wish.getLink();
+            String description = wish.getDescription();
+            int reserved = 1;
+            if (wish.isReserved()){
+                reserved = 0;
+            }
+            int FKWishlistID = wish.getFKWishlistID();
+
+            String query = "INSERT INTO `votum`.`wishes` (`title`, `price`, `link`, `description`, `reserved`, `FK_wishlist_id`)"
+                    + "VALUES ('"+title+"', '"+price+"', '"+link+"', '"+description+"', '"+reserved+"', '"+FKWishlistID+"')";
+
+            stmt.executeUpdate(query);
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

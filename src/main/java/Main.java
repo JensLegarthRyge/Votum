@@ -17,7 +17,10 @@ public class Main {
         ArrayList<User> allUsers = ur.getAllUsers();
         for (User cr:allUsers) {
             System.out.println(cr.toString());
+            System.out.println(cr.getBirthDate());
+
         }
+
         System.out.println("\n\n");
 
 
@@ -33,6 +36,12 @@ public class Main {
             System.out.println(cr.toString());
         }
         System.out.println("\n\n");
+
+        Wish emilsØnske = new Wish(0,"Bil",10.00,"mercedes.com","super lang fed mercedes der hedder maybach"
+        ,true,5);
+
+        wr.addWishToDatabase(emilsØnske);
+
 
     }
 }

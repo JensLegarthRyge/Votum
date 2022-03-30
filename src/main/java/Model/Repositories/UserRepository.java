@@ -29,12 +29,8 @@ public class UserRepository {
                 String email = rs.getString("email");
                 String password = rs.getString("password");
 
-                String birthday = rs.getString("birth_date");
-                String[] birthdayArray = birthday.split("-");
-                int year = Integer.parseInt(birthdayArray[0])-1900;
-                int month = Integer.parseInt(birthdayArray[1])-1;
-                int day = Integer.parseInt(birthdayArray[2]);
-                Date birthDate = new Date(year,month,day);
+                String birthDate = rs.getString("birth_date");
+
 
 
                 String firstName = rs.getString("first_name");
@@ -48,5 +44,28 @@ public class UserRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } return allUsers;
+    }
+
+    public void addUserToDatabase(User user){
+        try {
+            Connection con = dcm.getConnectionToDatabase();
+            Statement stmt = con.createStatement();
+
+            String email = user.getEmail();
+            String password = user.getPassword();
+            String birthdate = user.getBirthDate();
+            String firstName = user.getFirstName();
+            String lastName = user.getLastName();
+            String phoneNumber = user.getPhoneNumber();
+
+            String query = "INSERT INTO `votum`.`users` (`email`, `password`, `birth_date`, `first_name`, `last_name`, `phone_number`)"
+                    + "VALUES ('"+email+"', '"+password+"', '"+birthdate+"', '"+firstName+"', '"+lastName+"', '"+phoneNumber+"');";
+
+            stmt.executeUpdate(query);
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
