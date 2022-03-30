@@ -1,4 +1,4 @@
-package Services;
+package Model.Services;
 
 public class PhoneService {
     public static boolean isPhoneNumberValid(String number){

@@ -1,4 +1,4 @@
-package Services;
+package Model.Services;
 
 public class PasswordService {
     public static boolean isPasswordValid(String password){
