@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 public class PasswordService {
     public static boolean isPasswordValid(String password){
