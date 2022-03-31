@@ -1,17 +1,12 @@
 import Model.Repositories.UserRepository;
-import Model.Repositories.WishRepository;
-import Model.Repositories.WishlistRepository;
 import Model.User;
-import Model.Wish;
-import Model.Wishlist;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        UserRepository ur = new UserRepository();
+        /*
         WishlistRepository wlr = new WishlistRepository();
         WishRepository wr = new WishRepository();
-        UserRepository ur = new UserRepository();
 
 
         ArrayList<User> allUsers = ur.getAllUsers();
@@ -41,6 +36,11 @@ public class Main {
         ,true,5);
 
         wr.addWishToDatabase(emilsØnske);
+         */
+
+        User sarah = new User(1,"sarahengsted@gmail.com","SarahSejesen123","1998-10-10","Sarah","Engsted Andreasen","60501522");
+        System.out.println(ur.isLoginValid("sarahengsted@gmail.com", "SarahSejesen123"));
+        System.out.println(ur.isMailTaken("SarahENGSTED@gmail.com"));
 
 
     }
