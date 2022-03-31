@@ -8,7 +8,7 @@
 <body>
         <header class="burger-bar">
             <a>
-                <div class="log-in">
+                <div class="burger-button">
                     <button type="button" onclick="openLoginForm()">Log in</button>
                 </div>
             </a>
@@ -20,25 +20,26 @@
         </header>
 
         <section class="popup">
-            <div class="login-popup-form" id="loginPopupForm">
-                <form action="action.php" class="form-container">
+            <div class="popup-form" id="loginPopupForm">
+                <form method="POST" action="/login-info-user" class="form-container">
                     <h1>Login</h1>
-                    <label for="login-email"><b>Email</b></label>
-                    <input type="text" placeholder="Indtast Email" name="login-email" required>
-                    <label for="psw"><b>Password</b></label>
-                    <input type="text" placeholder="Indtast password" name="psw" required>
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Luk</button>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Indtast Email" name="email" id="email" required>
 
+                    <label for="psw"><b>Password</b></label>
+                    <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
                 </form>
             </div>
-            <div class="create-profile-form" id="createProfilePopupForm">
+            <div class="popup-form" id="createProfilePopupForm">
                 <form action="action.php" class="form-container">
                     <h1>Login</h1>
                     <label for="create-profile-email"><b>Email</b></label>
-                    <input type="text" placeholder="Indtast Email" name="create-profile-email" required>
+                    <input type="text" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
                     <label for="create-profile-psw"><b>Password</b></label>
-                    <input type="text" placeholder="Indtast password" name="create-profile-psw" required>
+                    <input type="text" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
                     <button type="submit" class="btn">Login</button>
                     <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
 
