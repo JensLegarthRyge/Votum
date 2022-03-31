@@ -14,7 +14,7 @@
             </a>
             <a>
                 <div class="opret-profil">
-                    <button type="button" onclick="openCreateProfileForm">Opret profil</button>
+                    <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
                 </div>
             </a>
         </header>
@@ -23,14 +23,26 @@
             <div class="login-popup-form" id="loginPopupForm">
                 <form action="action.php" class="form-container">
                     <h1>Login</h1>
-                    <label>
-                        <b>Email</b>
-                    </label>
-                    <input type="text" placeholder="Indtast Email" name="login-email" required></label>
+                    <label for="login-email"><b>Email</b></label>
+                    <input type="text" placeholder="Indtast Email" name="login-email" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="text" placeholder="Indtast password" name="psw" required>
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Luk</button>
+
                 </form>
             </div>
             <div class="create-profile-form" id="createProfilePopupForm">
-                <form action=""></form>
+                <form action="action.php" class="form-container">
+                    <h1>Login</h1>
+                    <label for="create-profile-email"><b>Email</b></label>
+                    <input type="text" placeholder="Indtast Email" name="create-profile-email" required>
+                    <label for="create-profile-psw"><b>Password</b></label>
+                    <input type="text" placeholder="Indtast password" name="create-profile-psw" required>
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
+
+                </form>
             </div>
 
         </section>
@@ -54,8 +66,14 @@
     function openLoginForm() {
         document.getElementById("loginPopupForm").style.display = "block";
     }
+    function closeLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "none";
+    }
     function openCreateProfileForm() {
-        document.getElementById("loginPopupForm").style.display = "block";
+        document.getElementById("createProfilePopupForm").style.display = "block";
+    }
+    function closeCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "none";
     }
 </script>
 </body>
