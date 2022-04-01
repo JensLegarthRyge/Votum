@@ -52,10 +52,32 @@ public class IndexController {
                 return "error-500";
             }
         }
-
-
         return "error";
     }
+
+    @GetMapping("/cookiepolitik")
+    public String cookiepolitik(){
+        return "cookiepolitik";
+    }
+
+    @GetMapping("/privatlivspolitik")
+    public String privatlivspolitik(){
+        return "privatlivspolitik";
+    }
+
+    @GetMapping("/kontakt")
+    public String kontakt(){
+        return "kontakt";
+    }
+
+    @GetMapping("/jobOgKarriere")
+    public String jobOgKarriere(){
+        return "jobOgKarriere";
+    }
+
+
+
+
 
 
 

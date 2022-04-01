@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    margin-bottom: 40px;
     font-family: Futura, sans-serif;
     background-color: rgb(229,227,216);
 }
@@ -101,8 +102,9 @@ body {
     text-align: left;
 }
 
-#footer {
+.footer {
     position: fixed;
+    margin-top: 500px;
     padding: 10px 10px 0px 10px;
     bottom: 0;
     width: 100%;
@@ -121,3 +123,28 @@ body {
 h1.shadow{
     text-shadow: #a1a097 5px 5px;
 }
+
+.jobSite{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+
+}
+
+.employees{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.jobPictures{
+    width: 100%;
+    height: 250px;
+}
+
+#headerJob{
+    text-align: center;
+}
+
