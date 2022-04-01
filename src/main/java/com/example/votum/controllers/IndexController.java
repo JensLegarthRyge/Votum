@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +20,10 @@ public class IndexController {
         return "frontPage";
     }
 
-    @PostMapping("/test")
+    @PostMapping("/login-user")
     public String loginInfoUser(WebRequest dataFromForm) {
         System.out.println(dataFromForm.getParameter("email-ting"));
-
         String email = dataFromForm.getParameter("email-ting");
-
         System.out.println(dataFromForm.getParameter("psw"));
         String password = dataFromForm.getParameter("psw");
 
@@ -35,6 +32,29 @@ public class IndexController {
         } else {
             return "redirect:/";
         }
+    }
+
+    @PostMapping("/create-user")
+    public String createUserInfo(WebRequest dataFromForm) {
+        System.out.println(dataFromForm.getParameter("create-email"));
+        String email = dataFromForm.getParameter("create-email");
+
+        System.out.println(dataFromForm.getParameter("create-psw"));
+        String password = dataFromForm.getParameter("create-psw");
+
+        System.out.println(dataFromForm.getParameter("birthday"));
+        String birthday = dataFromForm.getParameter("birthday");
+
+        System.out.println(dataFromForm.getParameter("sur-name"));
+        String surName = dataFromForm.getParameter("sur-name");
+
+        System.out.println(dataFromForm.getParameter("last-name"));
+        String lastName = dataFromForm.getParameter("last-name");
+
+        System.out.println(dataFromForm.getParameter("tlf-number"));
+        int phoneNumber = Integer.parseInt(dataFromForm.getParameter("tlf-number"));
+
+        return "redirect:/";
 
     }
 
