@@ -1,4 +1,4 @@
-package com.example.votum.controllers;
+package com.example.votum.Controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
