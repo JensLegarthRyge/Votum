@@ -1,5 +1,7 @@
-package com.example.votum.Controllers;
+package com.example.votum.controllers;
 
+import com.example.votum.Repositories.UserRepository;
+import com.example.votum.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,16 +47,29 @@ public class IndexController {
         System.out.println(dataFromForm.getParameter("birthday"));
         String birthday = dataFromForm.getParameter("birthday");
 
-        System.out.println(dataFromForm.getParameter("sur-name"));
-        String surName = dataFromForm.getParameter("sur-name");
+        System.out.println(dataFromForm.getParameter("first-name"));
+        String surName = dataFromForm.getParameter("first-name");
 
         System.out.println(dataFromForm.getParameter("last-name"));
         String lastName = dataFromForm.getParameter("last-name");
 
         System.out.println(dataFromForm.getParameter("tlf-number"));
-        int phoneNumber = Integer.parseInt(dataFromForm.getParameter("tlf-number"));
+        String phoneNumber = dataFromForm.getParameter("tlf-number");
 
-        return "redirect:/";
+
+        UserRepository ur = new UserRepository();
+        if (!ur.isMailTaken(email)) {
+            User temp = new User(email,password,birthday,surName,lastName,phoneNumber);
+            ur.addUserToDatabase(temp);
+            return "redirect:/front-page";
+        } else {
+
+            return "redirect:/ ";
+        }
+
+
+
+
 
     }
 
