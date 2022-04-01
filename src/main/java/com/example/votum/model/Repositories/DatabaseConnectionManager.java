@@ -1,5 +1,5 @@
 
-package Model.Repositories;
+package com.example.votum.model.Repositories;
 
 import java.sql.*;
 

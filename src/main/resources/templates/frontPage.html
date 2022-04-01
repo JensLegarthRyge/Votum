@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Free money </title>
+</head>
+<body>
+<!-- TODO User should be able to submit data -->
+<section class="content">
+    <h1>🤑 Free moneyy no scam - very easy</h1>
+    <form method="POST" action="/test">
+        <label for="email">🥳 Please enter your e-mail</label>
+        <input id="email" type="text" name="email"/>
+        <input type="submit">
+    </form>
+    <div class="popup-form" id="loginPopupForm">
+        <form method="POST" action="/test" class="form-container">
+            <h1>Login</h1>
+            <label for="email-ting"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="email-ting" id="email-ting" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,13 +1,12 @@
-package Model.Repositories;
+package com.example.votum.model.Repositories;
 
-import Model.User;
+import com.example.votum.model.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class UserRepository {
     private final DatabaseConnectionManager dcm;

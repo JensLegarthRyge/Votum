@@ -1,12 +1,17 @@
 package com.example.votum;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VotumApplication {
+public class VotumApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(VotumApplication.class, args);
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("hello world");
+    }
 }

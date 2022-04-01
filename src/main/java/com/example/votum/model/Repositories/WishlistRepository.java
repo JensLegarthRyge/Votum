@@ -1,7 +1,6 @@
-package Model.Repositories;
+package com.example.votum.model.Repositories;
 
-import Model.User;
-import Model.Wishlist;
+import com.example.votum.model.Wishlist;
 
 import java.sql.*;
 import java.util.ArrayList;

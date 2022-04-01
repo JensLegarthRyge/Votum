@@ -1,4 +1,4 @@
-package Model;
+package com.example.votum.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

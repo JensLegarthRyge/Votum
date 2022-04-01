@@ -1,6 +1,6 @@
-package Model.Repositories;
+package com.example.votum.model.Repositories;
 
-import Model.Wish;
+import com.example.votum.model.Wish;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
