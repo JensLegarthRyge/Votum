@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+</head>
+<body>
+<header class="burger-bar">
+    <a>
+        <div class="burger-button">
+            <button type="button" onclick="openLoginForm()">Log in</button>
+        </div>
+    </a>
+    <a>
+        <div class="opret-profil">
+            <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
+        </div>
+    </a>
+</header>
+
+<section class="popup">
+    <div class="popup-form" id="loginPopupForm">
+        <form method="POST" action="/login-info-user" class="form-container">
+            <h1>Login</h1>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="email" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
+        </form>
+    </div>
+    <div class="popup-form" id="createProfilePopupForm">
+        <form action="action.php" class="form-container">
+            <h1>Login</h1>
+            <label for="create-profile-email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
+            <label for="create-profile-psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
+
+        </form>
+    </div>
+
+</section>
+<section class="content">
+    <h1 class="shadow">Vōtum</h1>
+    <div class="flavor-text">
+        <p>cookies</p>
+    </div>
+</section>
+<div id="footer">
+    <a href="https://www.youtube.com/watch?v=25yaXwEhzpk" class="footerContent">Kontakt</a>
+    <a href="https://www.youtube.com/watch?v=25yaXwEhzpk" class="footerContent">Job og karriere</a>
+    <a href="https://www.youtube.com/watch?v=uUbHV3pbhx0" class="footerContent">Privatlivspolitik</a>
+    <a href="https://www.youtube.com/watch?v=25yaXwEhzpk" class="footerContent">Cookiepolitik</a>
+</div>
+
+<script>
+    function openLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "block";
+    }
+    function closeLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "none";
+    }
+    function openCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "block";
+    }
+    function closeCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "none";
+    }
+</script>
+</body>
+</html>

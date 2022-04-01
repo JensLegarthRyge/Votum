@@ -4,6 +4,8 @@ body {
     background-color: rgb(229,227,216);
 }
 
+
+
 .burger-bar {
     overflow: hidden;
     background-color: #333;
@@ -99,19 +101,21 @@ body {
     text-align: left;
 }
 
-.footer {
-    position: absolute;
+#footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
     bottom: 0;
     width: 100%;
-    background: #333;
+    height: 40px;
+    background-color: #333;
 }
 
-.footer a {
-    float: right;
-    padding: 14px 10px;
-    font-size: 15px;
-    color: white;
+.footerContent {
     text-decoration: none;
+    color: white;
+    float: right;
+    padding: 10px 20px 10px 10px;
+    font-size: 15px;
 }
 
 h1.shadow{
