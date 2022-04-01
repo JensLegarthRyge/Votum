@@ -12,12 +12,12 @@ public class User {
     private String lastName;
     private String phoneNumber;
 
-    public User(int userID, String email, String password, String birthdate, String firstName, String lastName, String phoneNumber) {
+    public User(int userID, String email, String password, String birthDate, String firstName, String lastName, String phoneNumber) {
         this.userID = userID;
         this.email = email;
         this.password = password;
 
-        String[] birthdayArray = birthdate.split("-");
+        String[] birthdayArray = birthDate.split("-");
         int year = Integer.parseInt(birthdayArray[0])-1900;
         int month = Integer.parseInt(birthdayArray[1])-1;
         int day = Integer.parseInt(birthdayArray[2]);
@@ -29,10 +29,17 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String email, String password, Date birthDate, String firstName, String lastName, String phoneNumber) {
+    public User(String email, String password, String birthDate, String firstName, String lastName, String phoneNumber) {
         this.email = email;
         this.password = password;
-        this.birthDate = birthDate;
+
+        String[] birthdayArray = birthDate.split("-");
+        int year = Integer.parseInt(birthdayArray[0])-1900;
+        int month = Integer.parseInt(birthdayArray[1])-1;
+        int day = Integer.parseInt(birthdayArray[2]);
+
+        this.birthDate = new Date(year,month,day);
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
