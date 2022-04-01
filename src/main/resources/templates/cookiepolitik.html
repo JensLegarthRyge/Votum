@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+</head>
+<body>
+<header class="burger-bar">
+    <a>
+        <div class="burger-button">
+            <button type="button" onclick="openLoginForm()">Log in</button>
+        </div>
+    </a>
+    <a>
+        <div class="opret-profil">
+            <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
+        </div>
+    </a>
+</header>
+
+<section class="popup">
+    <div class="popup-form" id="loginPopupForm">
+        <form method="POST" action="/login-info-user" class="form-container">
+            <h1>Login</h1>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="email" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
+        </form>
+    </div>
+    <div class="popup-form" id="createProfilePopupForm">
+        <form action="action.php" class="form-container">
+            <h1>Login</h1>
+            <label for="create-profile-email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
+            <label for="create-profile-psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
+
+        </form>
+    </div>
+
+</section>
+<section class="content">
+    <div class="flavor-text">
+        <h2>COOKIEPOLITIK</h2>
+        <p>Nedenfor kan du læse mere om, hvad cookies er, og hvordan Votum ApS (”vi, ”os” eller ”vores”) benytter cookies på dette websted (www.Votum.dk ).
+            Vi opfordrer også til, at du læser vores Privatlivspolitik, hvor vi har beskrevet, hvordan Votum ApS behandler dine personoplysninger. Vores Privatlivspolitik er tilgængelig på vores websted her.
+        </p>
+        <h2>HVAD ER COOKIES?</h2>
+        <p>Cookies bruges af næsten alle websteder. Undertiden er brug af cookies den eneste måde at få et websted til at gøre de ting, du ønsker
+            En cookie er en lille tekstfil, der er gemt på din computer eller IT-udstyr. Nogen typer af cookies har til formål at sikre funktionaliteten på webstedet. Andre typer af cookies gør det muligt for webstedet at genkende din enhed og foretrukne indstillinger eller at generere statistik over besøg på webstedet. Endelig benyttes nogen typer af cookies til markedsføring.
+            Dette websted benytter både egne cookies, dvs. cookies, der placeres på webstedet af Votum ApS, og cookies fra tredjeparter. Se nærmere herom i afsnit 4.
+        </p>
+        <h2>SAMTYKKE TIL COOKIES</h2>
+        <p>Nogen typer af cookies er nødvendige for at sikre webstedets funktionalitet og sikkerhed. Vores websted benytter altid denne type af cookies og disse cookies kan ikke fravælges.
+            Andre typer af cookies benyttes kun, hvis du giver dit samtykke. Det gælder cookies, der har til formål at generere statistik og huske dine foretrukne indstillinger samt cookies til brug for markedsføring, så vi kan optimere vores reklametiltag, fx på de sociale medier. Vi benytter først cookies, som kræver dit samtykke, når du har givet os dit samtykke via cookiebanneret på vores websted.
+            Hvis du senere ønsker at slette cookies, som er gemt på din computer eller IT-udstyr, kan du slette cookies via indstillingerne i din browser. Se nærmere herom i afsnit 5.
+        </p>
+        <h2>BRUG AF COOKIES TIL STATISTIK, BRUGERPRÆFERENCER OG MÅLRETTET MARKEDSFØRING FRA OS OG VORES ANNONCØRER</h2>
+        <p>Første gang du besøger vores websted, vil du blive spurgt om samtykke til webstedets brug af cookies med det formål at indsamle statistikker og huske brugerpræferencer samt for at muliggøre målrettet markedsføring fra os og vores annoncører. Vi viser denne meddelelse på alle vores websteder for klart at angive vores brug af cookies.
+            Du kan vælge statiske-, marketings- samt visse funktionelle cookies (brugerpræferencer) til, når du trykker ”aktiver” de(n) pågældende typer af cookies i denne boks.
+            Hvis du giver samtykke, bruger vi denne type af cookies til at lære mere om dine præferencer både med hensyn til brugen af vores tjenester og din brug af webstederne og andre e-handelsenheder, hvis produkter du kan vælge at tilføje til en ønskeliste. Vi vil bruge disse oplysninger, så vi kan forbedre vores tjenester, herunder ved mere nøjagtigt at foreslå produkter til dig.
+        </p>
+        <h2>SLETNING AF COOKIES</h2>
+        <p>Du kan når som helst slette eller afvise cookies ved at ændre dine browserindstillinger eller via vores cookiebanner (boksen, der kommer op), når du tilgår Votums websted
+            Hvor du kan få adgang til indstillingerne, og hvor du kan slette cookies, afhænger af hvilken browser, du bruger. Med alle browsere kan du slette cookies enten én ad gangen eller alle på én gang
+            Hvis du sletter cookies, eller indstiller din browser til at afvise brugen af cookies, skal du dog være opmærksom på, at det kan gå ud over brugeroplevelsen af webstedet. Der kan således være nogen indstillinger og brugerpræferencer, som ikke længere ”huskes” af vores websted, næste gang du besøger det.
+        </p>
+    </div>
+</section>
+<div class="footer">
+    <a href="kontakt" class="footerContent">Kontakt</a>
+    <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
+    <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
+    <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
+</div>
+
+<script>
+    function openLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "block";
+    }
+    function closeLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "none";
+    }
+    function openCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "block";
+    }
+    function closeCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "none";
+    }
+</script>
+</body>
+</html>

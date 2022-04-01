@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+</head>
+<body>
+<header class="burger-bar">
+    <a>
+        <div class="burger-button">
+            <button type="button" onclick="openLoginForm()">Log in</button>
+        </div>
+    </a>
+    <a>
+        <div class="opret-profil">
+            <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
+        </div>
+    </a>
+</header>
+
+<section class="popup">
+    <div class="popup-form" id="loginPopupForm">
+        <form method="POST" action="/login-info-user" class="form-container">
+            <h1>Login</h1>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="email" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
+        </form>
+    </div>
+    <div class="popup-form" id="createProfilePopupForm">
+        <form action="action.php" class="form-container">
+            <h1>Login</h1>
+            <label for="create-profile-email"><b>Email</b></label>
+            <input type="text" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
+            <label for="create-profile-psw"><b>Password</b></label>
+            <input type="text" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
+
+        </form>
+    </div>
+
+</section>
+<section class="content">
+    <div class="flavor-text">
+        <h2>PRIVATLIVSPOLITIK</h2>
+        <p>For Votum ApS er beskyttelsen af dit privatliv meget vigtigt.
+            Denne privatlivspolitik angiver, hvordan vi håndterer dine personligt, identificerbare oplysninger ("Personoplysninger"), som vi indsamler fra dig gennem din brug af vores websted på Votum.dk ("Webstedet") samt platformen Votum ("Platformen”), hvordan vi vil behandle dine Personoplysninger, samt hvornår vi vælger at videregive sådanne Personoplysninger til tredjepart. Webstedet og Platformen benævnes i det følgende under et som "Tjenesterne".
+            Din brug af Tjenesterne samt indsendelse af Personoplysninger til os udgør din bekræftelse af, at du har modtaget og læst denne privatlivspolitik. Denne privatlivspolitik er effektiv fra den 15. maj. 2020.
+            For Votum ApS er beskyttelsen af dit privatliv meget vigtigt.
+            Denne privatlivspolitik angiver, hvordan vi håndterer dine personligt, identificerbare oplysninger ("Personoplysninger"), som vi indsamler fra dig gennem din brug af vores websted på Votum.dk ("Webstedet") samt platformen Votum ("Platformen”), hvordan vi vil behandle dine Personoplysninger, samt hvornår vi vælger at videregive sådanne Personoplysninger til tredjepart. Webstedet og Platformen benævnes i det følgende under et som "Tjenesterne".
+            Din brug af Tjenesterne samt indsendelse af Personoplysninger til os udgør din bekræftelse af, at du har modtaget og læst denne privatlivspolitik. Denne privatlivspolitik er effektiv fra den 15. maj. 2020.
+        </p>
+        <h2>DATAANSVARLIG</h2>
+        <p>Dataansvarlig er:
+            Votum ApSCVR-nummer 42069 Fakestreet 12100 København Ø kontakt@Votum.dk
+        </p>
+        <h2>PERSONOPLYSNINGER OG ANVENDELSESDATA, SOM VI INDSAMLER</h2>
+        <p>Hvis du vælger eller har valgt at oprette en profil hos Votum indsamler vi følgende personoplysninger om dig:
+            navn, e-mailadresse, fysiske adresse, telefonnummer, fødselsdato, køn, detaljer vedrørende begivenheder, som du opretter en ønskeseddel for (f.eks. fødselsdagsdato og -placering), dine familieforhold og deres kontaktoplysninger, angivet af dig.
+            Der indsamles ikke særlige kategorier af Personoplysninger.
+            Vi indsamler kun de personoplysninger om dig, som du vælger at sende til os.
+            Du garanterer og indestår for, at alle Personoplysninger og øvrige informationer du giver os, er sande og korrekte og vedrører dig og ikke nogen anden person eller virksomhed.
+        </p>
+        <h2>BRUG AF DE PERSONOPLYSNINGER OG BRUGSDATA, SOM VI INDSAMLER</h2>
+        <p>Vi indsamler og bruger dine Personoplysninger til følgende formål:</p>
+        <ul>
+            <li>For at aktivere eller deaktivere dit abonnement på Tjenesterne,</li>
+            <li>For at levere Tjenesterne til dig,</li>
+            <li>For at håndtere dine forespørgsler,</li>
+            <li>Med henblik på forskning og udvikling for at udvide og forbedre Tjenesterne (f.eks. ved hjælp af dataanalyse), for at udvikle nye tjenester og løsninger og for at forbedre de nuværende Tjenester eller for at udvikle nye</li>
+            <li>For at sikre, vedligeholde og støtte vores systemer og programmer
+            <li>Hvis det med rimelighed er påkrævet i forbindelse med en tvist, som vi er eller kan blive involveret i, enten direkte med dig eller en tredjepart,</li>
+            <li>Når vi af retshåndhævende myndigheder eller domstole er forpligtet til at videregive dine Personoplysninger,</li>
+            <li>For at forbedre vores Tjenester, kan vi muligvis bruge dine Personoplysninger til at prøve at løse dette problem.</li>
+            <li>til at hjælpe os med at lære mere om dine præferencer og for at forbedre din oplevelse, herunder ved at foreslå produkter, der kan appellere til dig og giver dig mulighed for lettere at nå ud til folk, såsom familiemedlemmer, der kan være med på en begivenhed, som du opretter en ønskeliste til.</li>
+            <li>for at understøtte vores salgs- og markedsføringsaktiviteter, med forbehold for dit forudgående specifikke samtykke, kan vi også bruge dine Personoplysninger til at kontakte dig for at promovere vores tjenester. I tilfælde af at vi sender dig reklamemateriale eller markedsføringsmateriale, giver vi dig muligheden for at fravælge modtagelse af sådant materiale i fremtiden. Du kan også fravælge modtagelse af sådant materiale til enhver tid i overensstemmelse med instruktionerne i denne privatlivspolitik.</li>
+            <li>brugsdata kan bruges af os til administrative, analytiske, forskning, test, optimering samt andre formål</li>
+            <li>brugsdata kan i samlet, anonym form deles med tredjepart, der leverer analytiske tjenester, søgning og andre optimeringstjenester. Disse anvendelsesdata vil ikke blive knyttet til dig personligt.</li>
+        </ul>
+    </div>
+</section>
+<div class="footer">
+    <a href="kontakt" class="footerContent">Kontakt</a>
+    <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
+    <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
+    <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
+</div>
+
+<script>
+    function openLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "block";
+    }
+    function closeLoginForm() {
+        document.getElementById("loginPopupForm").style.display = "none";
+    }
+    function openCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "block";
+    }
+    function closeCreateProfileForm() {
+        document.getElementById("createProfilePopupForm").style.display = "none";
+    }
+</script>
+</body>
+</html>
