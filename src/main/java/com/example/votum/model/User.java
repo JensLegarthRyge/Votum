@@ -29,6 +29,15 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public User(String email, String password, Date birthDate, String firstName, String lastName, String phoneNumber) {
+        this.email = email;
+        this.password = password;
+        this.birthDate = birthDate;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "User{" +
