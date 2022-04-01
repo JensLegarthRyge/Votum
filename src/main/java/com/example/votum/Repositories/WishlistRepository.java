@@ -1,4 +1,4 @@
-package com.example.votum.model.Repositories;
+package com.example.votum.Repositories;
 
 import com.example.votum.model.Wishlist;
 
