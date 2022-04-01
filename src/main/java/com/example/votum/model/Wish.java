@@ -1,4 +1,4 @@
-package Model;
+package com.example.votum.model;
 
 public class Wish {
     private int wishID;

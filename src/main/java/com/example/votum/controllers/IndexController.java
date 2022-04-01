@@ -1,4 +1,4 @@
-package controllers;
+package com.example.votum.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -24,6 +24,7 @@ public class IndexController {
     @PostMapping("/test")
     public String loginInfoUser(WebRequest dataFromForm) {
         System.out.println(dataFromForm.getParameter("email-ting"));
+
         String email = dataFromForm.getParameter("email-ting");
 
         System.out.println(dataFromForm.getParameter("psw"));
@@ -37,7 +38,7 @@ public class IndexController {
 
     }
 
-    @RequestMapping("/error")
+    @GetMapping("/404-error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 

@@ -1,4 +1,4 @@
-package Model.Services;
+package com.example.votum.model.Services;
 
 public class PasswordService {
     public static boolean isPasswordValid(String password){

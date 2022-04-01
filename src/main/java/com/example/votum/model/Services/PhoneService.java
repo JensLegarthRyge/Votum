@@ -1,4 +1,4 @@
-package Model.Services;
+package com.example.votum.model.Services;
 
 public class PhoneService {
     public static boolean isPhoneNumberValid(String number){
