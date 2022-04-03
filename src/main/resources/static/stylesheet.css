@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     margin-bottom: 40px;
@@ -85,6 +89,20 @@ body {
 
 .content {
     align-items: flex-start;
+}
+.frontpage {
+    position: relative;
+    background-color: rgb(229,227,216);
+}
+
+.frontpage-content {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.frontpage-content button {
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .content h1 {

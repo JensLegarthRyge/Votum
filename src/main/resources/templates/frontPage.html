@@ -2,30 +2,36 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Free money </title>
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
 </head>
 <body>
-<!-- TODO User should be able to submit data -->
-<section class="content">
-    <h1>🤑 Free moneyy no scam - very easy</h1>
-    <form method="POST" action="/test">
-        <label for="email">🥳 Please enter your e-mail</label>
-        <input id="email" type="text" name="email"/>
-        <input type="submit">
-    </form>
-    <div class="popup-form" id="loginPopupForm">
-        <form method="POST" action="/test" class="form-container">
-            <h1>Login</h1>
-            <label for="email-ting"><b>Email</b></label>
-            <input type="text" placeholder="Indtast Email" name="email-ting" id="email-ting" required>
+    <header class="burger-bar">
+        <a>
+            <div class="burger-button">
+                <form method="GET" action="/">
+                <button type="submit">Log ud</button>
+                </form>
+            </div>
+        </a>
+    </header>
+    <section class="frontpage">
+        <section class="content">
+            <h1 class="shadow">Vōtum</h1>
+            <div class="frontpage-content">
+                <h2>Mine Lister</h2>
+                <button type="button">Mads Juleønsker</button>
+                <button type="button">+ Ny liste</button>
+            </div>
+        </section>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+    </section>
+    <div class="footer">
+        <a href="kontakt" class="footerContent">Kontakt</a>
+        <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
+        <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
+        <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
 
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
-        </form>
     </div>
-</section>
 </body>
 </html>
