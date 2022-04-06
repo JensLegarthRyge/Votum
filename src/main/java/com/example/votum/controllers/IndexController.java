@@ -28,7 +28,7 @@ public class IndexController {
     @GetMapping("/")
     public String frontPage(HttpSession session) {
         if (null != session.getAttribute("userID")) {
-            return "frontPage";
+            return "redirect:/logged-in-frontpage";
         } else{
             return "index";
         }
