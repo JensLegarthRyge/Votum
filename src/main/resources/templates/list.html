@@ -41,22 +41,20 @@
         <button type="button" id="create-wish" onclick="openWishForm()" class="addWish">Add wish<br> <span class="plus">+</span></button>
         <section class="popup-form-front" id="wishPopupForm">
             <form method="POST" action="/create-wish" class="form-container">
+
                 <h1>Lav ønske</h1>
                 <label for="wish-title"><b>Ønske</b></label>
                 <input type="text" placeholder="Indtast navnet på dit ønske" name="name-for-wish" id="wish-title" required>
 
                 <label for="wish-price"><b>Pris</b></label>
-                <input type="number" placeholder="Indtast prisen" name="price-of-wish" id="wish-price">
+                <input type="number" placeholder="Indtast prisen" name="price-of-wish" id="wish-price" required>
 
                 <label for="wish-link"><b>Link</b></label>
-                <input type="url" placeholder="Indsæt link" name="link-for-wish" id="wish-link">
+                <input type="url" placeholder="Indsæt link" name="link-for-wish" id="wish-link" required>
 
                 <label for="wish-description"><b>Beskrivelse</b></label>
-                <input type="text" placeholder="Beskriv ønsket" name="description-of-wish" id="wish-description">
-                <!--
-                <label for="wish-reserved"><b>Status</b></label>
-                <input type="checkbox" name="reserved-wish" id="wish-reserved">
-                -->
+                <input type="text" placeholder="Beskriv ønsket" name="description-of-wish" id="wish-description" required>
+
                 <button type="submit" class="btn">Opret</button>
                 <button type="button" class="btn cancel" onclick="closeWishForm()">Luk</button>
             </form>
