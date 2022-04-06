@@ -3,6 +3,8 @@ package com.example.votum.controllers;
 import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
+import com.example.votum.Services.EmailService;
+import com.example.votum.Services.PhoneService;
 import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
 import com.example.votum.model.Wish;
@@ -17,6 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -71,7 +74,6 @@ public class IndexController {
             session.setAttribute("userID",currentUser.getUserID());
             return "redirect:/logged-in-frontpage";
         } else {
-
             return "redirect:/ ";
         }
 
@@ -131,18 +133,18 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
-    @GetMapping("/list")
-    public String list(HttpSession session, Model allWishesForWishlist){
+    @PostMapping("/list")
+    public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
         WishRepository rp = new WishRepository();
+        int currentWishlist = Integer.parseInt(dataFromForm.getParameter("hidden"));
 
-        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(3);
+        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlist);
 
         //ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID((int)session.getAttribute("wishlistID"));
 
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
-
 
 
 

@@ -9,8 +9,6 @@ body {
     background-color: rgb(229,227,216);
 }
 
-
-
 .burger-bar {
     overflow: hidden;
     background-color: #333;
@@ -22,12 +20,11 @@ body {
     text-decoration: none;
 }
 
-
-
 .burger-bar button {
     width: 100px;
     text-decoration: none;
 }
+
 .button {
     background-color: #555;
     color: white;
@@ -50,6 +47,7 @@ body {
     overflow: auto;
     height: 80%;
 }
+
 .popup-form-front {
     display: none;
     position: fixed;
@@ -65,7 +63,6 @@ body {
     max-width: 300px;
     padding: 10px;
     background-color: white;
-
 }
 
 .form-container input[type=text], .form-container input[type=password] {
@@ -110,7 +107,6 @@ body {
     flex-direction: column;
     text-align: center;
     padding-top: 60px;
-
 }
 
 .frontpage-content button {
@@ -167,7 +163,6 @@ h1.shadow{
     margin: auto;
     width: 90%;
     padding: 10px;
-
 }
 
 .employees{
@@ -196,8 +191,6 @@ h1.shadow{
     flex-flow: wrap;
     padding: 30px;
     justify-content: space-between;
-
-
 }
 
 .wish{
@@ -233,7 +226,6 @@ h1.shadow{
 #wishContent{
     display: flex;
     flex-direction: row;
-
 }
 
 #priceLink{

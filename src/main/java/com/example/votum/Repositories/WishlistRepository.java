@@ -47,32 +47,5 @@ public class WishlistRepository {
             e.printStackTrace();
         }
     }
-    /*
-    public boolean doesWishlistExist(String email){
-        boolean doesWishListExist = false;
-        try {
-            Connection con = dcm.getConnectionToDatabase();
-            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-
-            ResultSet rs = stmt.executeQuery(
-                    "SELECT " +
-                            "CASE " +
-                            "WHEN u.email = '"+email+"' THEN 'True'" +
-                            "ELSE 'False'" +
-                            "END AS is_email_taken " +
-                            "FROM votum.users as u " +
-                            "WHERE u.email = '"+email+"'");
-
-            rs.next();
-            doesWishListExist = rs.getBoolean("is_email_taken");
-
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } return doesWishListExist;
-
-    }
-
-     */
 
 }
