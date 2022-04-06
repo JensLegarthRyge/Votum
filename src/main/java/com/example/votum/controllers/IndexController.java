@@ -82,9 +82,8 @@ public class IndexController {
 
     }
 
+
     @PostMapping("/create-wishlist")
-    public String wishListCreator (WebRequest dataFromForm) {
-    @PostMapping("create-wishlist")
     public String wishListCreator (WebRequest dataFromForm, HttpSession session) {
         WishlistRepository wlr = new WishlistRepository();
 
