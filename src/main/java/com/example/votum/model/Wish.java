@@ -19,6 +19,19 @@ public class Wish {
         this.FKWishlistID = FKWishlistID;
     }
 
+    public Wish(String title, double price, String link, String description, int FKWishlistID) {
+        this.title = title;
+        this.price = price;
+        this.link = link;
+        this.description = description;
+        this.FKWishlistID = FKWishlistID;
+    }
+
+    public Wish(int wishID, int FKWishlistID) {
+        this.wishID = wishID;
+        this.FKWishlistID = FKWishlistID;
+    }
+
     @Override
     public String toString() {
         return "Wish{" +

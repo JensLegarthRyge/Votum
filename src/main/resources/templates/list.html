@@ -8,6 +8,13 @@
 <body>
 <section class="frontpage">
     <header class="burger-bar">
+        <a>
+            <div class="burger-button">
+                <form method="GET" action="/">
+                 <button type="submit">Log ud</button>
+                </form>
+            </div>
+        </a>
         <p id="headerList">"Header"<p/>
     </header>
     <div class="wishes">
@@ -30,7 +37,29 @@
                 </div>
             </div>
         </div>
-        <button class="addWish">Add wish<br> <span class="plus">+</span></button>
+        <button type="button" id="create-wish" onclick="openWishForm()" class="addWish">Add wish<br> <span class="plus">+</span></button>
+        <section class="popup-form-front" id="wishPopupForm">
+            <form method="POST" action="/create-wish" class="form-container">
+                <h1>Lav ønske</h1>
+                <label for="wish-title"><b>Ønske</b></label>
+                <input type="text" placeholder="Indtast navnet på dit ønske" name="name-for-wish" id="wish-title" required>
+
+                <label for="wish-price"><b>Pris</b></label>
+                <input type="number" placeholder="Indtast prisen" name="price-of-wish" id="wish-price">
+
+                <label for="wish-link"><b>Link</b></label>
+                <input type="url" placeholder="Indsæt link" name="link-for-wish" id="wish-link">
+
+                <label for="wish-description"><b>Beskrivelse</b></label>
+                <input type="text" placeholder="Beskriv ønsket" name="description-of-wish" id="wish-description">
+                <!--
+                <label for="wish-reserved"><b>Status</b></label>
+                <input type="checkbox" name="reserved-wish" id="wish-reserved">
+                -->
+                <button type="submit" class="btn">Opret</button>
+                <button type="button" class="btn cancel" onclick="closeWishForm()">Luk</button>
+            </form>
+        </section>
 
     </div>
 
@@ -42,5 +71,13 @@
     <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
 
 </div>
+<script>
+    function openWishForm() {
+        document.getElementById("wishPopupForm").style.display = "block";
+    }
+    function closeWishForm() {
+        document.getElementById("wishPopupForm").style.display = "none";
+    }
+</script>
 </body>
 </html>
