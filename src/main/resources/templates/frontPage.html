@@ -20,7 +20,9 @@
             <h1 class="shadow">Vōtum</h1>
             <div class="frontpage-content">
                 <h2>Mine Lister</h2>
-                <button type="button">Mads Juleønsker</button>
+                <div id="existing-wishlist">
+                    <button th:each="Wishlist : ${allWishLists}" th:text="${Wishlist.getTitle()}"></button>
+                </div>
                 <div id="selectpanel">
                 </div>
                 <div id="inputpanel">

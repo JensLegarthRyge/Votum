@@ -111,7 +111,32 @@ public class UserRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } return isMailTaken;
+    }
 
+    public User getUserFromEmail(String userEmail){
+        User userToReturn = null;
+        try {
+            Connection con = dcm.getConnectionToDatabase();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users as u WHERE u.email = '"+userEmail+"'");
+
+            rs.next();
+            int userID = rs.getInt("user_id");
+            String email = rs.getString("email");
+            String password = rs.getString("password");
+            String birthDate = rs.getString("birth_date");
+            String firstName = rs.getString("first_name");
+            String lastName = rs.getString("last_name");
+            String phoneNumber = rs.getString("phone_number");
+
+            userToReturn = new User(userID,email,password,birthDate,firstName,lastName,phoneNumber);
+
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } return userToReturn;
     }
 
 
