@@ -48,4 +48,25 @@ public class WishlistRepository {
         }
     }
 
+    public int getWishlistIDFromWishlistName(String wishlistName, int userID){
+        ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
+        int wishlistID = 0;
+        for (Wishlist cwl:allWishlists) {
+            if (cwl.getTitle().equals(wishlistName)){
+                return cwl.getWishlistID();
+            }
+        } return wishlistID;
+    }
+
+    public ArrayList<Integer> getAllWishListIDsFromUserID(int userID){
+        ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
+
+        ArrayList<Integer> allWishlistIDs = new ArrayList<>();
+
+        for (Wishlist cwl:allWishlists) {
+            allWishlistIDs.add(cwl.getWishlistID());
+        }
+        return allWishlistIDs;
+    }
+
 }

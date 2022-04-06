@@ -108,18 +108,13 @@ public class IndexController {
     @PostMapping("/create-wish")
     public String wishCreator (WebRequest dataFromForm, HttpSession session) {
         WishRepository wr = new WishRepository();
-        String wishName = dataFromForm.getParameter("name-for-wish");
-
-        //wr.addWishToDatabase();
 
         String title = dataFromForm.getParameter("name-for-wish");
         String priceString = dataFromForm.getParameter("price-of-wish");
         double price = Double.parseDouble(priceString);
         String url = dataFromForm.getParameter("link-for-wish");
         String description = dataFromForm.getParameter("description-of-wish");
-
-        int wishlistID = Integer.parseInt(session.getAttribute("wishlistID").toString());
-
+        int wishlistID = (int)(session.getAttribute("wishlistID"));
 
         Wish newWish = new Wish(title, price, url, description, wishlistID);
         wr.addWishToDatabase(newWish);
@@ -167,13 +162,11 @@ public class IndexController {
     @PostMapping("/list")
     public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
         WishRepository rp = new WishRepository();
-        int currentWishlist = Integer.parseInt(dataFromForm.getParameter("hidden"));
-
-        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlist);
+        int currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden"));
+        session.setAttribute("wishlistID", currentWishlistID);
+        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlistID);
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
-
-
 
 }
