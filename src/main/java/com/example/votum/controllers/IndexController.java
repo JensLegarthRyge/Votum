@@ -27,7 +27,11 @@ import java.util.concurrent.TimeUnit;
 public class IndexController {
     @GetMapping("/")
     public String frontPage(HttpSession session) {
-        return "index";
+        if (null != session.getAttribute("userID")) {
+            return "frontPage";
+        } else{
+            return "index";
+        }
     }
 
     @GetMapping("/logged-in-frontpage")
