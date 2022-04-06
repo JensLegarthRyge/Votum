@@ -14,6 +14,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class IndexController {
@@ -49,22 +50,11 @@ public class IndexController {
 
     @PostMapping("/create-user")
     public String createUserInfo(WebRequest dataFromForm,HttpSession session) {
-        System.out.println(dataFromForm.getParameter("create-email"));
         String email = dataFromForm.getParameter("create-email");
-
-        System.out.println(dataFromForm.getParameter("create-psw"));
         String password = dataFromForm.getParameter("create-psw");
-
-        System.out.println(dataFromForm.getParameter("birthday"));
         String birthday = dataFromForm.getParameter("birthday");
-
-        System.out.println(dataFromForm.getParameter("first-name"));
         String surName = dataFromForm.getParameter("first-name");
-
-        System.out.println(dataFromForm.getParameter("last-name"));
         String lastName = dataFromForm.getParameter("last-name");
-
-        System.out.println(dataFromForm.getParameter("tlf-number"));
         String phoneNumber = dataFromForm.getParameter("tlf-number");
 
 
@@ -74,7 +64,7 @@ public class IndexController {
             ur.addUserToDatabase(temp);
             User currentUser = ur.getUserFromEmail(email);
             session.setAttribute("userID",currentUser.getUserID());
-            return "redirect:/front-page";
+            return "redirect:/logged-in-frontpage";
         } else {
 
             return "redirect:/ ";
@@ -83,15 +73,13 @@ public class IndexController {
     }
 
     @PostMapping("/create-wishlist")
-    public String wishListCreator (WebRequest dataFromForm) {
-    @PostMapping("create-wishlist")
     public String wishListCreator (WebRequest dataFromForm, HttpSession session) {
         WishlistRepository wlr = new WishlistRepository();
 
         String wishListName = dataFromForm.getParameter("name-for-wishlist");
+        wlr.addWishlistToDatabase(wishListName,(int)session.getAttribute("userID"));
 
-
-        return "redirect:/front-page";
+        return "redirect:/logged-in-frontpage";
     }
 
     @GetMapping("/404-error")
