@@ -7,6 +7,8 @@
 </head>
 <body>
         <header class="burger-bar">
+                <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+                <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
             <a>
                 <div class="burger-button">
                     <button type="button" onclick="openLoginForm()">Log in</button>
@@ -24,10 +26,10 @@
                 <form method="POST" action="/login-user" class="form-container">
                     <h1>Login</h1>
                     <label for="email-ting"><b>Email</b></label>
-                    <input type="text" placeholder="Indtast Email" name="email-ting" id="email-ting" required>
+                    <input type="email" placeholder="Indtast Email" name="email-ting" id="email-ting" required>
 
                     <label for="psw"><b>Password</b></label>
-                    <input type="text" placeholder="Indtast password" name="psw" id="psw" required>
+                    <input type="password" placeholder="Indtast password" name="psw" id="psw" required>
 
                     <button type="submit" class="btn">Login</button>
                     <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
@@ -38,7 +40,7 @@
                 <form method="POST" action="/create-user" class="form-container">
                     <h1>Opret profil</h1>
                     <label for="create-profile-email"><b>Email</b></label>
-                    <input type="text" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
+                    <input type="email" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
 
                     <label for="create-profile-psw"><b>Password</b></label>
                     <input type="password" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
@@ -67,20 +69,14 @@
 
         </section>
         <section class="content">
-            <h1 class="shadow">Vōtum</h1>
+            <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
                 <div class="flavor-text">
                     <p>Velkommen til Vōtum, din personlige ønskelistehjemmeside.</p>
                     <p>Siden er gratis og kræver ikke meget for at oprette.</p>
                     <p>Opret en profil for at komme i gang.</p>
                 </div>
         </section>
-        <div class="footer">
-            <a href="kontakt" class="footerContent">Kontakt</a>
-            <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
-            <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
-            <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
-
-        </div>
+        <div th:replace="fragments/general.html :: footer()"></div>
 
 <script>
     function openLoginForm() {

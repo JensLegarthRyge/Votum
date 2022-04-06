@@ -8,12 +8,23 @@
 <body>
 <section class="frontpage">
     <header class="burger-bar">
-        <p id="headerList">" Header "<p/>
+        <a href="/">
+            <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+            <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
+        </a>
+        <a>
+            <div class="burger-button">
+                <form method="GET" action="/">
+                 <button type="submit">Log ud</button>
+                </form>
+            </div>
+        </a>
+        <p id="headerList">"Header"<p/>
     </header>
     <div class="wishes">
         <div class="wish" th:each="Wish : ${allWishes}">
             <div class="wishHeader">
-                <img class="wishLogo" src="https://imgur.com/1SV2vVu.png">
+                <img class="wishLogo" src="https://imgur.com/NFKziS4.png">
                 <a class="wishHeaderText" th:text="${Wish.getTitle()}"></a>
             </div>
             <div id="wishContent">
@@ -30,17 +41,43 @@
                 </div>
             </div>
         </div>
-        <button class="addWish">Add wish<br> <span class="plus">+</span></button>
+        <button type="button" id="create-wish" onclick="openWishForm()" class="addWish">Add wish<br> <span class="plus">+</span></button>
+        <section class="popup-form-front" id="wishPopupForm">
+            <form method="POST" action="/create-wish" class="form-container">
+                <h1>Lav ønske</h1>
+                <label for="wish-title"><b>Ønske</b></label>
+                <input type="text" placeholder="Indtast navnet på dit ønske" name="name-for-wish" id="wish-title" required>
+
+                <label for="wish-price"><b>Pris</b></label>
+                <input type="number" placeholder="Indtast prisen" name="price-of-wish" id="wish-price">
+
+                <label for="wish-link"><b>Link</b></label>
+                <input type="url" placeholder="Indsæt link" name="link-for-wish" id="wish-link">
+
+                <label for="wish-description"><b>Beskrivelse</b></label>
+                <input type="text" placeholder="Beskriv ønsket" name="description-of-wish" id="wish-description">
+                <!--
+                <label for="wish-reserved"><b>Status</b></label>
+                <input type="checkbox" name="reserved-wish" id="wish-reserved">
+                -->
+                <button type="submit" class="btn">Opret</button>
+                <button type="button" class="btn cancel" onclick="closeWishForm()">Luk</button>
+            </form>
+        </section>
 
     </div>
 
 </section>
-<div class="footer">
-    <a href="kontakt" class="footerContent">Kontakt</a>
-    <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
-    <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
-    <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
 
+<div th:replace="fragments/general.html :: footer()"></div>
 </div>
+<script>
+    function openWishForm() {
+        document.getElementById("wishPopupForm").style.display = "block";
+    }
+    function closeWishForm() {
+        document.getElementById("wishPopupForm").style.display = "none";
+    }
+</script>
 </body>
 </html>

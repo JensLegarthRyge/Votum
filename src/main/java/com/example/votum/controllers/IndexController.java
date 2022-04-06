@@ -94,10 +94,29 @@ public class IndexController {
 
         session.setAttribute("wishlistID", WishlistService.currentWishlistID(session.getAttribute("userID").toString()));
 
-
-
-
         return "redirect:/logged-in-frontpage";
+    }
+
+    @PostMapping("/create-wish")
+    public String wishCreator (WebRequest dataFromForm, HttpSession session) {
+        WishRepository wr = new WishRepository();
+        String wishName = dataFromForm.getParameter("name-for-wish");
+
+        //wr.addWishToDatabase();
+
+        String title = dataFromForm.getParameter("name-for-wish");
+        String priceString = dataFromForm.getParameter("price-of-wish");
+        double price = Double.parseDouble(priceString);
+        String url = dataFromForm.getParameter("link-for-wish");
+        String description = dataFromForm.getParameter("description-of-wish");
+
+        int wishlistID = Integer.parseInt(session.getAttribute("wishlistID").toString());
+
+
+        Wish newWish = new Wish(title, price, url, description, wishlistID);
+        wr.addWishToDatabase(newWish);
+
+        return "redirect:/list";
     }
 
     @GetMapping("/404-error")
@@ -143,9 +162,6 @@ public class IndexController {
         int currentWishlist = Integer.parseInt(dataFromForm.getParameter("hidden"));
 
         ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlist);
-
-        //ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID((int)session.getAttribute("wishlistID"));
-
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }

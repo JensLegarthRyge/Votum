@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="stylesheet.css">
+</head>
+<body>
+<div th:fragment="footer()">
+    <div class="footer">
+        <a href="kontakt" class="footerContent">Kontakt</a>
+        <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
+        <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
+        <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
+        <img class="footerPic" src="https://imgur.com/jqptSTc.png">
+    </div>
+</div>
+
+<div th:fragment="header()">
+    <header class="headerNoLogin">
+        <a href="/">
+            <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+        </a>
+        <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
+    </header>
+</div>
+</body>
+</html>
