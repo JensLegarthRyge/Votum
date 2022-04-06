@@ -69,7 +69,7 @@ public class IndexController {
 
     }
 
-    @PostMapping("create-wishlist")
+    @PostMapping("/create-wishlist")
     public String wishListCreator (WebRequest dataFromForm) {
 
         String wishListName = dataFromForm.getParameter("name-for-wishlist");
