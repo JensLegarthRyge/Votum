@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+</head>
+<body>
+<section class="frontpage">
+    <header class="burger-bar">
+        <p id="headerList">"Header"<p/>
+    </header>
+    <div class="wishes">
+        <div class="wish" th:each="Wish : ${wishess}">
+            <p>Titel: <span th:text="${titel}"></span></p>
+            <p>Price: <span th:text="${price}"></span></p>
+            <p>Link: <a th:href="${link}">click here</a></p>
+            <p>Description: <span th:text="${description}"></span></p>
+        </div>
+        <div class="wish">
+            <p>test</p>
+        </div>
+        <div class="wish">
+        </div>
+            <div id="demo"></div>
+    </div>
+    <div id="container">
+        <p>test</p>
+    </div>
+
+</section>
+<div class="footer">
+    <a href="kontakt" class="footerContent">Kontakt</a>
+    <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
+    <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
+    <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
+
+</div>
+</body>
+</html>

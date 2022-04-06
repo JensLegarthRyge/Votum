@@ -1,14 +1,18 @@
 package com.example.votum.controllers;
 
 import com.example.votum.Repositories.UserRepository;
+import com.example.votum.Repositories.WishRepository;
 import com.example.votum.model.User;
+import com.example.votum.model.Wish;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 @Controller
 public class IndexController {
@@ -108,6 +112,19 @@ public class IndexController {
     @GetMapping("/jobOgKarriere")
     public String jobOgKarriere(){
         return "jobOgKarriere";
+    }
+
+    @GetMapping("/list")
+    public String list(Model allWishesForWishlist){
+        WishRepository rp = new WishRepository();
+
+        rp.getAllWishesFromWishlistID(2);
+
+
+
+
+
+        return "list";
     }
 
 

@@ -175,3 +175,28 @@ h1.shadow{
     text-align: center;
 }
 
+#headerList{
+    color: white;
+    justify-content: center;
+}
+
+.wishes{
+    width: border-box;
+    display: flex;
+    flex-flow: wrap;
+    padding: 30px;
+    justify-content: space-between;
+
+
+}
+
+.wish{
+    width: 30%;
+    height: 100px;
+    background-color: #a1a097;
+    margin-top: 30px;
+    font-size: 11px;
+    padding-left: 10px;
+
+}
+
