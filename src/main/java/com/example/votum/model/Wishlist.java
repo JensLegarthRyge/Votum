@@ -19,4 +19,17 @@ public class Wishlist {
     public String getTitle() {
         return title;
     }
+
+    public int getWishlistID() {
+        return wishlistID;
+    }
+
+    public int getFKUserId() {
+        return FKUserId;
+    }
+
+    @Override
+    public String toString() {
+        return ""+wishlistID;
+    }
 }

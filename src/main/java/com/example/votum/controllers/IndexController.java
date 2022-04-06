@@ -3,6 +3,7 @@ package com.example.votum.controllers;
 import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
+import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
 import com.example.votum.model.Wishlist;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -80,7 +82,13 @@ public class IndexController {
         WishlistRepository wlr = new WishlistRepository();
 
         String wishListName = dataFromForm.getParameter("name-for-wishlist");
+
         wlr.addWishlistToDatabase(wishListName,(int)session.getAttribute("userID"));
+
+        session.setAttribute("wishlistID", WishlistService.currentWishlistID(session.getAttribute("userID").toString()));
+
+
+
 
         return "redirect:/logged-in-frontpage";
     }
@@ -122,20 +130,13 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
-    @GetMapping("/list")
-    public String list(Model allWishesForWishlist){
+    @PostMapping("/list")
+    public String list(Model allWishesForWishlist, WebRequest dataFromForm){
         WishRepository rp = new WishRepository();
+        int currentWishlist = Integer.parseInt(dataFromForm.getParameter("hidden"));
 
-        rp.getAllWishesFromWishlistID(2);
-
-
-
-
-
+        rp.getAllWishesFromWishlistID(currentWishlist);
         return "list";
     }
-
-
-
 
 }

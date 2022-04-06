@@ -20,9 +20,13 @@
             <h1 class="shadow">Vōtum</h1>
             <div class="frontpage-content">
                 <h2>Mine Lister</h2>
-                <div id="existing-wishlist">
-                    <button th:each="Wishlist : ${allWishLists}" th:text="${Wishlist.getTitle()}"></button>
-                </div>
+                <!-- In this form we create forms for each of the buttons. We also have an input that is hidden that is
+                assigned the id of the wishlist that is submitted
+                -->
+                <form th:each="Wishlist : ${allWishLists}" method="POST" action="/list">
+                    <input name="hidden" type="hidden" th:value="${Wishlist.getWishlistID()}">
+                    <button th:text="${Wishlist.getTitle()}" th:name="${Wishlist.getWishlistID()}" th:id="${Wishlist.getWishlistID()}" th:value="${Wishlist.getWishlistID()}"></button>
+                </form>
                 <div id="selectpanel">
                 </div>
                 <div id="inputpanel">
@@ -49,8 +53,11 @@
 
     </div>
     <script>
-        function createButton(context) {
+        function goToWishlist () {
 
+
+        }
+        function createButton(context) {
             var button = document.createElement("button");
             button.type = "button";
             button.value = "im a button";
