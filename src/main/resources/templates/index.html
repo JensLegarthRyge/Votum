@@ -7,6 +7,8 @@
 </head>
 <body>
         <header class="burger-bar">
+                <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+                <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
             <a>
                 <div class="burger-button">
                     <button type="button" onclick="openLoginForm()">Log in</button>
@@ -67,20 +69,14 @@
 
         </section>
         <section class="content">
-            <h1 class="shadow">Vōtum</h1>
+            <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
                 <div class="flavor-text">
                     <p>Velkommen til Vōtum, din personlige ønskeliste hjemmeside.</p>
                     <p>Siden er gratis og kræver ikke meget for at oprette.</p>
                     <p>Opret en profil for at komme i gang.</p>
                 </div>
         </section>
-        <div class="footer">
-            <a href="kontakt" class="footerContent">Kontakt</a>
-            <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
-            <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
-            <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
-
-        </div>
+        <div th:replace="fragments/general.html :: footer()"></div>
 
 <script>
     function openLoginForm() {

@@ -9,15 +9,52 @@ body {
     background-color: rgb(229,227,216);
 }
 
-.burger-bar {
+.votumHeader{
+    display: flex;
+    width: 40%;
+    height: auto;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.burger-bar{
     overflow: hidden;
     background-color: #333;
+    height: 50px;
+}
+
+.headerNoLogin{
+    overflow: hidden;
+    background-color: #333;
+    height: 50px;
+    position: center;
+}
+
+.headerNoLoginPic{
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    width: auto;
+    margin: 2px 1px 2px 20px;
+    position: absolute;
+}
+
+.headerCenter{
+    height: 30px;
+    width: auto;
+    position: center;
+    margin: 10px 0px 10px 40%;
 }
 
 .burger-bar a {
     float: right;
     padding: 14px 10px;
     text-decoration: none;
+}
+
+.burger-bar b {
+    align-content: center;
+    justify-content: center;
 }
 
 .burger-bar button {
@@ -153,6 +190,13 @@ body {
     font-size: 15px;
 }
 
+.footerPic{
+    height: 30px;
+    width: auto;
+    float: right;
+    margin-right: 18%;
+}
+
 h1.shadow{
     text-shadow: #a1a097 5px 5px;
 }
@@ -274,6 +318,7 @@ h1.shadow{
 .wishLogo{
     height: 50px;
     width: 50px;
+    margin: 5px 0px 0px 28px;
 }
 
 .addWish{

@@ -7,13 +7,16 @@
 </head>
 <body>
 <section class="frontpage">
-    <header class="burger-bar">
-        <p id="headerList">" Header "<p/>
+    <header class="headerNoLogin">
+        <a href="/">
+            <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+            <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
+        </a>
     </header>
     <div class="wishes">
         <div class="wish" th:each="Wish : ${allWishes}">
             <div class="wishHeader">
-                <img class="wishLogo" src="https://imgur.com/1SV2vVu.png">
+                <img class="wishLogo" src="https://imgur.com/NFKziS4.png">
                 <a class="wishHeaderText" th:text="${Wish.getTitle()}"></a>
             </div>
             <div id="wishContent">
@@ -35,12 +38,7 @@
     </div>
 
 </section>
-<div class="footer">
-    <a href="kontakt" class="footerContent">Kontakt</a>
-    <a href="jobOgKarriere" class="footerContent">Job og karriere</a>
-    <a href="privatlivspolitik" class="footerContent">Privatlivspolitik</a>
-    <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
 
-</div>
+<div th:replace="fragments/general.html :: footer()"></div>
 </body>
 </html>
