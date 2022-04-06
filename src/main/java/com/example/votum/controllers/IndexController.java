@@ -67,11 +67,17 @@ public class IndexController {
             return "redirect:/ ";
         }
 
-
-
-
-
     }
+
+    @PostMapping("create-wishlist")
+    public String wishListCreator (WebRequest dataFromForm) {
+
+        String wishListName = dataFromForm.getParameter("name-for-wishlist");
+
+
+        return "redirect:/front-page";
+    }
+
 
     @GetMapping("/404-error")
     public String handleError(HttpServletRequest request) {

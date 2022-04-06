@@ -11,6 +11,11 @@ public class Wishlist {
         this.title = title;
     }
 
+    public Wishlist(int FKUserId, String title) {
+        this.FKUserId = FKUserId;
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }
