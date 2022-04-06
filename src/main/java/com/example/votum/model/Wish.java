@@ -41,7 +41,12 @@ public class Wish {
     }
 
     public String getLink() {
-        return link;
+        if (link.contains("http://www.")){
+            return link;
+        }
+        else {
+            return "http://www." + link;
+        }
     }
 
     public String getDescription() {

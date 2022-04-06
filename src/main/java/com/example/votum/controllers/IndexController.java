@@ -4,6 +4,7 @@ import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
 import com.example.votum.model.User;
+import com.example.votum.model.Wish;
 import com.example.votum.model.Wishlist;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -123,15 +124,14 @@ public class IndexController {
     }
 
     @GetMapping("/list")
-    public String list(Model allWishesForWishlist){
+    public String list(HttpSession session, Model allWishesForWishlist){
         WishRepository rp = new WishRepository();
 
-        rp.getAllWishesFromWishlistID(2);
+        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(3);
 
+        //ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID((int)session.getAttribute("wishlistID"));
 
-
-
-
+        allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
 
