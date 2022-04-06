@@ -21,8 +21,15 @@
             <div class="frontpage-content">
                 <h2>Mine Lister</h2>
                 <button type="button">Mads Juleønsker</button>
-                <button type="button">+ Ny liste</button>
+                <div id="selectpanel">
+                </div>
+                <div id="inputpanel">
+                    <button type="button" id="createBut" onclick="openListForm()">+ Ny liste</button>
+                </div>
             </div>
+        </section>
+        <section class="popup-form" id="listPopupForm">
+            <form method="POST" action=""
         </section>
 
     </section>
@@ -33,5 +40,23 @@
         <a href="/cookiepolitik" class="footerContent">Cookiepolitik</a>
 
     </div>
+    <script>
+        function createButton(context) {
+
+            var button = document.createElement("button");
+            button.type = "button";
+            button.value = "im a button";
+            button.textContent = "Hej"
+
+            var selectPanel = document.getElementById('selectpanel');
+            selectPanel.appendChild(button);
+        }
+        function openListForm() {
+            document.getElementById("listPopupForm").style.display = "block";
+        }
+        function closeListForm() {
+            document.getElementById("listPopupForm").style.display = "none";
+        }
+    </script>
 </body>
 </html>
