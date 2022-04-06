@@ -23,6 +23,9 @@
             <div class="wishHeader">
                 <img class="wishLogo" src="https://imgur.com/NFKziS4.png">
                 <a class="wishHeaderText" th:text="${Wish.getTitle()}"></a>
+                <form method="POST" action="/removeWish">
+                    <button class="wishTrashcan" type="submit"><img class="wishTrashcanPic" src="https://imgur.com/B2pob7u.png"  alt=""/></button>
+                </form>
             </div>
             <div id="wishContent">
                 <div id="priceLink">

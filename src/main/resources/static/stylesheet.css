@@ -321,6 +321,24 @@ h1.shadow{
     margin: 5px 0px 0px 28px;
 }
 
+.wishTrashcan{
+    height: auto;
+    width: auto;
+    margin: 0px 5px 0px 0px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.wishTrashcanPic{
+    height: 25px;
+    width: auto;
+    position: center;
+}
+
 .addWish{
     width: 30%;
     height: 195px;

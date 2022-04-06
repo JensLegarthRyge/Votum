@@ -60,6 +60,14 @@ public class IndexController {
         }
     }
 
+    @PostMapping("/removeWish")
+    public String removeWish(WebRequest dataFromForm,HttpSession session){
+        System.out.println("succes");
+        WishRepository rp = new WishRepository();
+        rp.removeWishFromDatabase(10);
+        return "redirect:/";
+    }
+
     @PostMapping("/create-user")
     public String createUserInfo(WebRequest dataFromForm,HttpSession session) {
         String email = dataFromForm.getParameter("create-email");
