@@ -135,7 +135,7 @@ public class UserRepository {
             con.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Mail is taken");
         } return userToReturn;
     }
 
