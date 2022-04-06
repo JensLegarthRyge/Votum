@@ -5,6 +5,7 @@ import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
 import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
+import com.example.votum.model.Wish;
 import com.example.votum.model.Wishlist;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -130,13 +131,19 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
-    @PostMapping("/list")
-    public String list(Model allWishesForWishlist, WebRequest dataFromForm){
+    @GetMapping("/list")
+    public String list(HttpSession session, Model allWishesForWishlist){
         WishRepository rp = new WishRepository();
-        int currentWishlist = Integer.parseInt(dataFromForm.getParameter("hidden"));
 
-        rp.getAllWishesFromWishlistID(currentWishlist);
+        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(3);
+
+        //ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID((int)session.getAttribute("wishlistID"));
+
+        allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
+
+
+
 
 }

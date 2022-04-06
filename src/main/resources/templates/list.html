@@ -11,21 +11,29 @@
         <p id="headerList">"Header"<p/>
     </header>
     <div class="wishes">
-        <div class="wish" th:each="Wish : ${wishess}">
-            <p>Titel: <span th:text="${titel}"></span></p>
-            <p>Price: <span th:text="${price}"></span></p>
-            <p>Link: <a th:href="${link}">click here</a></p>
-            <p>Description: <span th:text="${description}"></span></p>
+        <div class="wish" th:each="Wish : ${allWishes}">
+            <div class="wishHeader">
+                <img class="wishLogo" src="https://imgur.com/1SV2vVu.png">
+                <a class="wishHeaderText" th:text="${Wish.getTitle()}"></a>
+            </div>
+            <div id="wishContent">
+                <div id="priceLink">
+                    <div>
+                        <a class="smallHeaderWishes">Price<br></a>
+                        <a><span th:text="${Wish.getPrice()}"></span></a>
+                    </div>
+                    <a class="linkButton" th:href="${Wish.getLink()}">Link</a>
+                </div>
+                <div id="wishDescription">
+                    <a class="smallHeaderWishes">Description</a>
+                    <a th:text="${Wish.getDescription()}"></a>
+                </div>
+            </div>
         </div>
-        <div class="wish">
-            <p>test</p>
+        <div class="addWish">
+            <p id="addWishHeader">ADD WISH</p>
+            <p id="plusSign">+</p>
         </div>
-        <div class="wish">
-        </div>
-            <div id="demo"></div>
-    </div>
-    <div id="container">
-        <p>test</p>
     </div>
 
 </section>
