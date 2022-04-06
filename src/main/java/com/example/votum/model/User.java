@@ -82,4 +82,8 @@ public class User {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    public int getUserID() {
+        return userID;
+    }
 }
