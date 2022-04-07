@@ -3,6 +3,8 @@ package com.example.votum.controllers;
 import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
+import com.example.votum.Services.EmailService;
+import com.example.votum.Services.PhoneService;
 import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
 import com.example.votum.model.Wish;
@@ -50,7 +52,6 @@ public class IndexController {
     public String loginInfoUser(WebRequest dataFromForm, HttpSession session) {
         String email = dataFromForm.getParameter("email-ting");
         String password = dataFromForm.getParameter("psw");
-
         UserRepository ur = new UserRepository();
         if (ur.isLoginValid(email, password)){
             User currentUser = ur.getUserFromEmail(email);
@@ -83,7 +84,7 @@ public class IndexController {
 
 
         UserRepository ur = new UserRepository();
-        if (!ur.isMailTaken(email)) {
+        if (!ur.isMailTaken(email) && PhoneService.isPhoneNumberValid(phoneNumber) && EmailService.isEmailValid(email)) {
             User temp = new User(email,password,birthday,surName,lastName,phoneNumber);
             ur.addUserToDatabase(temp);
             User currentUser = ur.getUserFromEmail(email);

@@ -104,6 +104,17 @@ body {
     color: #E5E3D8FF;
 }
 
+.popup-form-create {
+    display: none;
+    position: fixed;
+    right: 15px;
+    border: 3px solid rgb(40, 40, 40);
+    z-index: 9;
+    overflow: auto;
+    height: 100%;
+    color: #E5E3D8FF;
+}
+
 .popup-form-front {
     display: none;
     position: fixed;
@@ -115,6 +126,7 @@ body {
     height: auto;
     color: #E5E3D8FF;
 }
+
 
 .form-container {
     max-width: 300px;
