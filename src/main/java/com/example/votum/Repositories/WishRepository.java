@@ -17,13 +17,13 @@ public class WishRepository {
     }
 
     //Metode som tager imod en integer og returnere en liste med ønsker som tilhører den ønskeliste der har det ID der kommer ind i parameteren.
-    public ArrayList<Wish> getAllWishesFromWishlistID(int WishlistID){
+    public ArrayList<Wish> getAllWishesFromWishlistID(int wishlistID){
         ArrayList<Wish> allWishes = new ArrayList<>();
         try {
             Connection con = dcm.getConnectionToDatabase();
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM wishes as w WHERE w.FK_wishlist_id = "+WishlistID);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM wishes as w WHERE w.FK_wishlist_id = "+wishlistID);
 
             while (rs.next()) {
                 int wishID = rs.getInt("wish_id");
@@ -33,7 +33,7 @@ public class WishRepository {
                 String description = rs.getString("description");
                 boolean isReserved = rs.getInt("reserved") != 0;
 
-                allWishes.add(new Wish(wishID,title,price,link,description,isReserved,WishlistID));
+                allWishes.add(new Wish(wishID,title,price,link,description,isReserved,wishlistID));
             }
             con.close();
 

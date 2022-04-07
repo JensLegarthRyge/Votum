@@ -16,32 +16,7 @@ public class UserRepository {
         dcm = new DatabaseConnectionManager();
     }
 
-    //Metode som tager imod ingen parameter og returnere en liste af alle users som den henter fra databasen.
-    public ArrayList<User> getAllUsers(){
-        ArrayList<User> allUsers = new ArrayList<>();
-        try {
-            Connection con = dcm.getConnectionToDatabase();
-            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-
-            while (rs.next()) {
-                int userID = rs.getInt("user_id");
-                String email = rs.getString("email");
-                String password = rs.getString("password");
-                String birthDate = rs.getString("birth_date");
-                String firstName = rs.getString("first_name");
-                String lastName = rs.getString("last_name");
-                String phoneNumber = rs.getString("phone_number");
-
-                allUsers.add(new User(userID,email,password,birthDate,firstName,lastName,phoneNumber));
-            }
-            con.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } return allUsers;
-    }
 
     //Metode som tilføjer en user til en database. Den tager imod en User som parameter og returnere ingenting.
     public void addUserToDatabase(User user){

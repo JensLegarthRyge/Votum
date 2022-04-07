@@ -395,18 +395,26 @@ h1.shadow{
 }
 
 .addWish{
-    width: 30%;
-    height: 195px;
-    background-color: #9a9a97;
+    width: 30.4%;
+    height: 210px;
+    background-color: #D0CEBBFF;
     margin-top: 30px;
     margin-left: 30px;
     padding: 20px 0px 20px 0px;
     font-size: 40px;
     font-weight: bold;
     text-align: center;
+    border-style: solid;
+    border-color: #3b3b39;
+    border-width: 3px;
 }
-.plus{
-    font-size: 130px;
+.picForAddWish{
+    width: 90%;
+    height: auto;
 }
+
+
+
+
 
 

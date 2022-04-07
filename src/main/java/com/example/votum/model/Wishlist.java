@@ -26,9 +26,6 @@ public class Wishlist {
         return wishlistID;
     }
 
-    public int getFKUserId() {
-        return FKUserId;
-    }
 
     @Override
     public String toString() {

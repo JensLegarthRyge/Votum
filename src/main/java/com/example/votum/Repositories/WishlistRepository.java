@@ -51,28 +51,4 @@ public class WishlistRepository {
             e.printStackTrace();
         }
     }
-
-    //Metode som tager imod en String og en integer  og returnere en integer. Her findes ID'et på den wishlist som der søges efter på navn.
-    public int getWishlistIDFromWishlistName(String wishlistName, int userID){
-        ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
-        int wishlistID = 0;
-        for (Wishlist cwl:allWishlists) {
-            if (cwl.getTitle().equals(wishlistName)){
-                return cwl.getWishlistID();
-            }
-        } return wishlistID;
-    }
-
-    //Metode som tager imod en integer og returnere en liste med alle de ønskeliste ID'er som tilhører denne user.
-    public ArrayList<Integer> getAllWishListIDsFromUserID(int userID){
-        ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
-
-        ArrayList<Integer> allWishlistIDs = new ArrayList<>();
-
-        for (Wishlist cwl:allWishlists) {
-            allWishlistIDs.add(cwl.getWishlistID());
-        }
-        return allWishlistIDs;
-    }
-
 }

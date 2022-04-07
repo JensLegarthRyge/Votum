@@ -183,6 +183,8 @@ public class IndexController {
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
+
+    //
    @PostMapping("/log-ud")
    public String logOut(HttpSession session){
         session.invalidate();
