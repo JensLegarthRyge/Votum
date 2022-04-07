@@ -2,23 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Vōtum</title>
-    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="stylesheet.css">
 </head>
 <body>
-        <header class="burger-bar">
-                <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
-                <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
-            <a>
-                <div class="burger-button">
-                    <button type="button" onclick="openLoginForm()">Log in</button>
-                </div>
-            </a>
-            <a>
-                <div class="opret-profil">
-                    <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
-                </div>
-            </a>
+<div th:fragment="footer()">
+    <div class="footer">
+        <a href="kontakt" class="footerContent">KONTAKT</a>
+        <a href="jobOgKarriere" class="footerContent">JOB OG KARRIERE</a>
+        <a href="privatlivspolitik" class="footerContent">PRIVATLIVSPOLITIK</a>
+        <a href="/cookiepolitik" class="footerContent">COOKIEPOLITIK</a>
+        <img class="footerPic" src="https://imgur.com/jqptSTc.png">
+    </div>
+</div>
+
+
+
+<div th:fragment="header()">
+    <span th:if="${session.userID == null}">
+         <header class="burger-bar">
+             <a href="/">
+                 <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+             </a>
+             <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
+             <div class="burger-button">
+                 <button type="button" onclick="openLoginForm()">
+                     Log in
+                 </button>
+             </div>
+
+            <div class="burger-button">
+                <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
+            </div>
         </header>
 
         <section class="popup">
@@ -49,7 +64,8 @@
                     <label for="birthday"><b>Fødselsdag</b></label>
                     <br>
                     <input type="date" placeholder="Indtast din fødselsdag" name="birthday" id="birthday" required>
-                    <br><br>
+                    <br>
+                    <br>
 
                     <label for="first-name"><b>Fornavn</b></label>
                     <input type="text" placeholder="Indtast fornavn" name="first-name" id="first-name" required>
@@ -63,34 +79,41 @@
 
                     <button type="submit" class="btn">Login</button>
                     <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
-
                 </form>
             </div>
 
+            <script>
+                function openLoginForm() {
+                    document.getElementById("loginPopupForm").style.display = "block";
+                }
+                function closeLoginForm() {
+                    document.getElementById("loginPopupForm").style.display = "none";
+                }
+                function openCreateProfileForm() {
+                    document.getElementById("createProfilePopupForm").style.display = "block";
+                }
+                function closeCreateProfileForm() {
+                    document.getElementById("createProfilePopupForm").style.display = "none";
+                }
+            </script>
         </section>
-        <section class="content">
-            <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
-                <div class="flavor-text">
-                    <p>Velkommen til Vōtum, din personlige ønskelistehjemmeside.</p>
-                    <p>Siden er gratis og kræver ikke meget for at oprette.</p>
-                    <p>Opret en profil for at komme i gang.</p>
-                </div>
-        </section>
-        <div th:replace="fragments/general.html :: footer()"></div>
+    </span>
+    <span th:unless="${session.userID == null}">
+        <header class="burger-bar">
+        <a href="/">
+             <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
+         </a>
+        <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
+        <a>
+            <div class="burger-button">
+                <form method="POST" action="/log-ud">
+                <button type="submit">Log ud</button>
+                </form>
+            </div>
+        </a>
+    </header>
+    </span>
+</div>
 
-<script>
-    function openLoginForm() {
-        document.getElementById("loginPopupForm").style.display = "block";
-    }
-    function closeLoginForm() {
-        document.getElementById("loginPopupForm").style.display = "none";
-    }
-    function openCreateProfileForm() {
-        document.getElementById("createProfilePopupForm").style.display = "block";
-    }
-    function closeCreateProfileForm() {
-        document.getElementById("createProfilePopupForm").style.display = "none";
-    }
-</script>
 </body>
 </html>

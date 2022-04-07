@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vōtum</title>
+    <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
+</head>
+<body>
+<div th:replace="fragments/general.html :: header()"></div>
+    <section class="content">
+        <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
+            <div class="flavor-text">
+                <p>Velkommen til Vōtum, din personlige ønskelistehjemmeside.</p>
+                <p>Siden er gratis og kræver ikke meget for at oprette.</p>
+                <p>Opret en profil for at komme i gang.</p>
+            </div>
+    </section>
+<div th:replace="fragments/general.html :: footer()"></div>
+
+</body>
+</html>
