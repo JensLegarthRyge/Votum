@@ -6,91 +6,16 @@
     <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
 </head>
 <body>
-        <header class="burger-bar">
-                <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
-                <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
-            <a>
-                <div class="burger-button">
-                    <button type="button" onclick="openLoginForm()">Log in</button>
-                </div>
-            </a>
-            <a>
-                <div class="opret-profil">
-                    <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
-                </div>
-            </a>
-        </header>
-
-        <section class="popup">
-            <div class="popup-form" id="loginPopupForm">
-                <form method="POST" action="/login-user" class="form-container">
-                    <h1>Login</h1>
-                    <label for="email-ting"><b>Email</b></label>
-                    <input type="email" placeholder="Indtast Email" name="email-ting" id="email-ting" required>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Indtast password" name="psw" id="psw" required>
-
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeLoginForm()">Luk</button>
-                </form>
+<div th:replace="fragments/general.html :: header()"></div>
+    <section class="content">
+        <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
+            <div class="flavor-text">
+                <p>Velkommen til Vōtum, din personlige ønskelistehjemmeside.</p>
+                <p>Siden er gratis og kræver ikke meget for at oprette.</p>
+                <p>Opret en profil for at komme i gang.</p>
             </div>
+    </section>
+<div th:replace="fragments/general.html :: footer()"></div>
 
-            <div class="popup-form" id="createProfilePopupForm">
-                <form method="POST" action="/create-user" class="form-container">
-                    <h1>Opret profil</h1>
-                    <label for="create-profile-email"><b>Email</b></label>
-                    <input type="email" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
-
-                    <label for="create-profile-psw"><b>Password</b></label>
-                    <input type="password" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
-
-                    <br>
-                    <label for="birthday"><b>Fødselsdag</b></label>
-                    <br>
-                    <input type="date" placeholder="Indtast din fødselsdag" name="birthday" id="birthday" required>
-                    <br><br>
-
-                    <label for="first-name"><b>Fornavn</b></label>
-                    <input type="text" placeholder="Indtast fornavn" name="first-name" id="first-name" required>
-
-                    <label for="last-name"><b>Efternavn</b></label>
-                    <input type="text" placeholder="Indtast efternavn" name="last-name" id="last-name" required>
-
-                    <label for="tlf-number"><b>Telfonnummer</b></label>
-                    <input type="tel" placeholder="Indtast telfonnummer" name="tlf-number" id="tlf-number" required>
-
-
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
-
-                </form>
-            </div>
-
-        </section>
-        <section class="content">
-            <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
-                <div class="flavor-text">
-                    <p>Velkommen til Vōtum, din personlige ønskelistehjemmeside.</p>
-                    <p>Siden er gratis og kræver ikke meget for at oprette.</p>
-                    <p>Opret en profil for at komme i gang.</p>
-                </div>
-        </section>
-        <div th:replace="fragments/general.html :: footer()"></div>
-
-<script>
-    function openLoginForm() {
-        document.getElementById("loginPopupForm").style.display = "block";
-    }
-    function closeLoginForm() {
-        document.getElementById("loginPopupForm").style.display = "none";
-    }
-    function openCreateProfileForm() {
-        document.getElementById("createProfilePopupForm").style.display = "block";
-    }
-    function closeCreateProfileForm() {
-        document.getElementById("createProfilePopupForm").style.display = "none";
-    }
-</script>
 </body>
 </html>

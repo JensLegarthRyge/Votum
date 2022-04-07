@@ -3,8 +3,6 @@ package com.example.votum.controllers;
 import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
-import com.example.votum.Services.EmailService;
-import com.example.votum.Services.PhoneService;
 import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
 import com.example.votum.model.Wish;
@@ -15,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +35,7 @@ public class IndexController {
     @GetMapping("/logged-in-frontpage")
     public String loggedInFrontpage(HttpSession session, Model wishlistModel){
         WishlistRepository wlr = new WishlistRepository();
+
         ArrayList<Wishlist> allUserWishlists = wlr.getAllWishlistsFromUserID((int)session.getAttribute("userID"));
 
         wishlistModel.addAttribute("allWishLists",allUserWishlists);
@@ -48,7 +46,6 @@ public class IndexController {
     @PostMapping("/login-user")
     public String loginInfoUser(WebRequest dataFromForm, HttpSession session) {
         String email = dataFromForm.getParameter("email-ting");
-        System.out.println(dataFromForm.getParameter("psw"));
         String password = dataFromForm.getParameter("psw");
 
         UserRepository ur = new UserRepository();
@@ -90,9 +87,7 @@ public class IndexController {
         } else {
             return "redirect:/ ";
         }
-
     }
-
 
     @PostMapping("/create-wishlist")
     public String wishListCreator (WebRequest dataFromForm, HttpSession session) {
@@ -176,5 +171,12 @@ public class IndexController {
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
     }
+   @PostMapping("/log-ud")
+   public String logOut(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+   }
+
+
 
 }
