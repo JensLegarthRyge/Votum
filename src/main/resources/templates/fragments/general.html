@@ -27,12 +27,14 @@
              <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
              <div class="burger-button">
                  <button type="button" onclick="openLoginForm()">
-                     Log in
+                     LOG IND
                  </button>
              </div>
 
             <div class="burger-button">
-                <button type="button" onclick="openCreateProfileForm()">Opret profil</button>
+                <button type="button" onclick="openCreateProfileForm()">
+                    OPRET PROFIL
+                </button>
             </div>
         </header>
 
@@ -53,32 +55,31 @@
 
             <div class="popup-form" id="createProfilePopupForm">
                 <form method="POST" action="/create-user" class="form-container">
-                    <h1>Opret profil</h1>
-                    <label for="create-profile-email"><b>Email</b></label>
+                    <h1>OPRET PROFIL</h1>
+                    <label for="create-profile-email"><b>EMAIL</b></label>
                     <input type="email" placeholder="Indtast Email" name="create-email" id="create-profile-email" required>
 
-                    <label for="create-profile-psw"><b>Password</b></label>
+                    <label for="create-profile-psw"><b>PASSWORD</b></label>
                     <input type="password" placeholder="Indtast password" name="create-psw" id="create-profile-psw" required>
 
                     <br>
-                    <label for="birthday"><b>Fødselsdag</b></label>
+                    <label for="birthday"><b>FØDSELSDAG</b></label>
                     <br>
                     <input type="date" placeholder="Indtast din fødselsdag" name="birthday" id="birthday" required>
                     <br>
-                    <br>
 
-                    <label for="first-name"><b>Fornavn</b></label>
+                    <label for="first-name"><b>FORNAVN</b></label>
                     <input type="text" placeholder="Indtast fornavn" name="first-name" id="first-name" required>
 
-                    <label for="last-name"><b>Efternavn</b></label>
+                    <label for="last-name"><b>EFTERNAVN</b></label>
                     <input type="text" placeholder="Indtast efternavn" name="last-name" id="last-name" required>
 
-                    <label for="tlf-number"><b>Telfonnummer</b></label>
+                    <label for="tlf-number"><b>TELEFONNUMMER</b></label>
                     <input type="tel" placeholder="Indtast telfonnummer" name="tlf-number" id="tlf-number" required>
 
 
-                    <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">Luk</button>
+                    <button type="submit" class="btn">LOGIN</button>
+                    <button type="button" class="btn cancel" onclick="closeCreateProfileForm()">LUK</button>
                 </form>
             </div>
 
