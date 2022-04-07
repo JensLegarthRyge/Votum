@@ -22,7 +22,7 @@
         <div class="wish" th:each="Wish : ${allWishes}">
             <div class="wishHeader">
                 <img class="wishLogo" src="https://imgur.com/NFKziS4.png">
-                <a class="wishHeaderText" th:text="${Wish.getTitle()}"></a>
+                <a class="wishHeaderText" th:text="${Wish.getTitle().toUpperCase()}"></a>
                 <form method="POST" action="/removeWish">
                     <input name="hiddenID" type="hidden" th:value="${Wish.getWishID()}">
                     <input name="hidden" type="hidden" th:value="${Wish.getFKWishlistID()}">
@@ -32,13 +32,13 @@
             <div id="wishContent">
                 <div id="priceLink">
                     <div>
-                        <a class="smallHeaderWishes">Price<br></a>
+                        <a class="smallHeaderWishes">PRICE<br></a>
                         <a><span th:text="${Wish.getPrice()}"></span></a>
                     </div>
-                    <a class="linkButton" th:href="${Wish.getLink()}">Link</a>
+                    <a class="linkButton" th:href="${Wish.getLink()}">" Link "</a>
                 </div>
                 <div id="wishDescription">
-                    <a class="smallHeaderWishes">Description</a>
+                    <a class="smallHeaderWishes">DESCRIPTION</a>
                     <a th:text="${Wish.getDescription()}"></a>
                 </div>
             </div>
