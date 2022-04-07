@@ -12,6 +12,7 @@ public class PasswordService {
         boolean consistUppercase = false;
         boolean consistNumber = false;
 
+
         //Checks for length of password
         if (length < 8 || length > 16){
             return false;
