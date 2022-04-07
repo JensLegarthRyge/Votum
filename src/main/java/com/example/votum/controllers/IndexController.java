@@ -3,8 +3,6 @@ package com.example.votum.controllers;
 import com.example.votum.Repositories.UserRepository;
 import com.example.votum.Repositories.WishRepository;
 import com.example.votum.Repositories.WishlistRepository;
-import com.example.votum.Services.EmailService;
-import com.example.votum.Services.PhoneService;
 import com.example.votum.Services.WishlistService;
 import com.example.votum.model.User;
 import com.example.votum.model.Wish;
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -60,35 +58,13 @@ public class IndexController {
         }
     }
 
-    @PostMapping("/list")
-    public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
+    @PostMapping ("/removeWish")
+    public String removeWish(WebRequest dataFromForm,HttpSession session){
         WishRepository rp = new WishRepository();
-
-        int currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden")); //Gemmer WishlistID i session
-        session.setAttribute("wishlistID", currentWishlistID); //Gemmer WishlistID i session
-
-        ArrayList<Wish> allWishesFromWishListID = rp.getAllWishesFromWishlistID(currentWishlistID);
-
-        allWishesForWishlist.addAttribute("allWishes", allWishesFromWishListID);
-        return "list";
-    }
-
-    @PostMapping("/create-wish")
-    public String wishCreator (WebRequest dataFromForm, HttpSession session) {
-        WishRepository wr = new WishRepository();
-
-        String title = dataFromForm.getParameter("name-for-wish");
-        String priceString = dataFromForm.getParameter("price-of-wish");
-        double price = Double.parseDouble(priceString);
-        String url = dataFromForm.getParameter("link-for-wish");
-        String description = dataFromForm.getParameter("description-of-wish");
-        int wishlistID = (int)(session.getAttribute("wishlistID"));
-
-        Wish newWish = new Wish(title, price, url, description, wishlistID);
-
-        wr.addWishToDatabase(newWish);
-
+        int currentWishID = Integer.parseInt(dataFromForm.getParameter("hiddenID"));
+        rp.removeWishFromDatabase(currentWishID);
         return "redirect:/list";
+
     }
 
     @PostMapping("/create-user")
@@ -124,6 +100,23 @@ public class IndexController {
         session.setAttribute("wishlistID", WishlistService.currentWishlistID(session.getAttribute("userID").toString()));
 
         return "redirect:/logged-in-frontpage";
+    }
+
+    @PostMapping("/create-wish")
+    public String wishCreator (WebRequest dataFromForm, HttpSession session) {
+        WishRepository wr = new WishRepository();
+
+        String title = dataFromForm.getParameter("name-for-wish");
+        String priceString = dataFromForm.getParameter("price-of-wish");
+        double price = Double.parseDouble(priceString);
+        String url = dataFromForm.getParameter("link-for-wish");
+        String description = dataFromForm.getParameter("description-of-wish");
+        int wishlistID = (int)(session.getAttribute("wishlistID"));
+
+        Wish newWish = new Wish(title, price, url, description, wishlistID);
+        wr.addWishToDatabase(newWish);
+
+        return "redirect:/list";
     }
 
     @GetMapping("/404-error")
@@ -163,6 +156,21 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
+    @RequestMapping("/list")
+    public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
+        WishRepository rp = new WishRepository();
+        int currentWishlistID = 0;
+        if(dataFromForm.getParameter("hidden") != null){
+            currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden"));
+            session.setAttribute("wishlistID", currentWishlistID);
+        }
+        else {
+            currentWishlistID =  Integer.parseInt(session.getAttribute("wishlistID").toString());
+        }
+        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlistID);
+        allWishesForWishlist.addAttribute("allWishes", wishes);
+        return "list";
+    }
    @PostMapping("/log-ud")
    public String logOut(HttpSession session){
         session.invalidate();

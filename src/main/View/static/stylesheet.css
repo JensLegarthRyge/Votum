@@ -234,17 +234,20 @@ h1.shadow{
     display: flex;
     flex-flow: wrap;
     padding: 30px;
-    justify-content: space-between;
 }
 
 .wish{
     width: 30%;
     height: auto;
-    background-color: #9a9a97;
+    background-color: #d0cebb;
     margin-top: 30px;
+    margin-left: 30px;
     font-size: 11px;
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-color: #3b3b39;
+    border-width: 3px;
 }
 
 .wishHeader{
@@ -289,7 +292,10 @@ h1.shadow{
     padding: 0px 10px 10px 10px;
     margin: 10px 10px 10px 0px;
     height: 100px;
-    background-color: #bbbab2;
+    background-color: #e3ddbd;
+    border-style: solid;
+    border-radius: 2px;
+    border-color: #3B3B39FF;
 }
 
 .linkButton {
@@ -300,6 +306,7 @@ h1.shadow{
     font-weight: bold;
     width: 80%;
     margin: auto;
+    text-decoration: none;
 }
 
 .linkButton:hover {
@@ -321,11 +328,30 @@ h1.shadow{
     margin: 5px 0px 0px 28px;
 }
 
+.wishTrashcan{
+    height: auto;
+    width: auto;
+    margin: 0px 5px 0px 0px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.wishTrashcanPic{
+    height: 25px;
+    width: auto;
+    position: center;
+}
+
 .addWish{
     width: 30%;
     height: 195px;
     background-color: #9a9a97;
     margin-top: 30px;
+    margin-left: 30px;
     padding: 20px 0px 20px 0px;
     font-size: 40px;
     font-weight: bold;

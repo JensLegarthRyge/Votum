@@ -45,6 +45,10 @@ public class Wish {
                 '}';
     }
 
+    public int getWishID(){
+        return wishID;
+    }
+
     public String getTitle() {
         return title;
     }

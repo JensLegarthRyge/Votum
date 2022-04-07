@@ -65,4 +65,17 @@ public class WishRepository {
             e.printStackTrace();
         }
     }
+
+    public void removeWishFromDatabase(int ID){
+        try {
+            Connection con = dcm.getConnectionToDatabase();
+            Statement stmt = con.createStatement();
+
+            String query = "DELETE FROM `votum`.`wishes` WHERE `wish_id` = '"+ID+"'";
+            stmt.executeUpdate(query);
+            con.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
