@@ -386,4 +386,8 @@ h1.shadow{
     display: block;
 }
 
+.hidden{
+    height: 0px;
+    width: 0px;
+}
 

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import javax.servlet.RequestDispatcher;
@@ -60,12 +61,13 @@ public class IndexController {
         }
     }
 
-    @PostMapping("/removeWish")
+    @PostMapping ("/removeWish")
     public String removeWish(WebRequest dataFromForm,HttpSession session){
-        System.out.println("succes");
         WishRepository rp = new WishRepository();
-        rp.removeWishFromDatabase(10);
-        return "redirect:/";
+        int currentWishID = Integer.parseInt(dataFromForm.getParameter("hiddenID"));
+        rp.removeWishFromDatabase(currentWishID);
+        return "redirect:/list";
+
     }
 
     @PostMapping("/create-user")
@@ -159,11 +161,17 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
-    @PostMapping("/list")
+    @RequestMapping("/list")
     public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
         WishRepository rp = new WishRepository();
-        int currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden"));
-        session.setAttribute("wishlistID", currentWishlistID);
+        int currentWishlistID = 0;
+        if(dataFromForm.getParameter("hidden") != null){
+            currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden"));
+            session.setAttribute("wishlistID", currentWishlistID);
+        }
+        else {
+            currentWishlistID =  Integer.parseInt(session.getAttribute("wishlistID").toString());
+        }
         ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlistID);
         allWishesForWishlist.addAttribute("allWishes", wishes);
         return "list";
