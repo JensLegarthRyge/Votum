@@ -37,6 +37,7 @@ public class IndexController {
     @GetMapping("/logged-in-frontpage")
     public String loggedInFrontpage(HttpSession session, Model wishlistModel){
         WishlistRepository wlr = new WishlistRepository();
+
         ArrayList<Wishlist> allUserWishlists = wlr.getAllWishlistsFromUserID((int)session.getAttribute("userID"));
 
         wishlistModel.addAttribute("allWishLists",allUserWishlists);
@@ -47,7 +48,6 @@ public class IndexController {
     @PostMapping("/login-user")
     public String loginInfoUser(WebRequest dataFromForm, HttpSession session) {
         String email = dataFromForm.getParameter("email-ting");
-        System.out.println(dataFromForm.getParameter("psw"));
         String password = dataFromForm.getParameter("psw");
 
         UserRepository ur = new UserRepository();
@@ -58,6 +58,37 @@ public class IndexController {
         } else{
             return "redirect:/";
         }
+    }
+
+    @PostMapping("/list")
+    public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
+        WishRepository rp = new WishRepository();
+
+        int currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden")); //Gemmer WishlistID i session
+        session.setAttribute("wishlistID", currentWishlistID); //Gemmer WishlistID i session
+
+        ArrayList<Wish> allWishesFromWishListID = rp.getAllWishesFromWishlistID(currentWishlistID);
+
+        allWishesForWishlist.addAttribute("allWishes", allWishesFromWishListID);
+        return "list";
+    }
+
+    @PostMapping("/create-wish")
+    public String wishCreator (WebRequest dataFromForm, HttpSession session) {
+        WishRepository wr = new WishRepository();
+
+        String title = dataFromForm.getParameter("name-for-wish");
+        String priceString = dataFromForm.getParameter("price-of-wish");
+        double price = Double.parseDouble(priceString);
+        String url = dataFromForm.getParameter("link-for-wish");
+        String description = dataFromForm.getParameter("description-of-wish");
+        int wishlistID = (int)(session.getAttribute("wishlistID"));
+
+        Wish newWish = new Wish(title, price, url, description, wishlistID);
+
+        wr.addWishToDatabase(newWish);
+
+        return "redirect:/list";
     }
 
     @PostMapping("/create-user")
@@ -80,9 +111,7 @@ public class IndexController {
         } else {
             return "redirect:/ ";
         }
-
     }
-
 
     @PostMapping("/create-wishlist")
     public String wishListCreator (WebRequest dataFromForm, HttpSession session) {
@@ -95,23 +124,6 @@ public class IndexController {
         session.setAttribute("wishlistID", WishlistService.currentWishlistID(session.getAttribute("userID").toString()));
 
         return "redirect:/logged-in-frontpage";
-    }
-
-    @PostMapping("/create-wish")
-    public String wishCreator (WebRequest dataFromForm, HttpSession session) {
-        WishRepository wr = new WishRepository();
-
-        String title = dataFromForm.getParameter("name-for-wish");
-        String priceString = dataFromForm.getParameter("price-of-wish");
-        double price = Double.parseDouble(priceString);
-        String url = dataFromForm.getParameter("link-for-wish");
-        String description = dataFromForm.getParameter("description-of-wish");
-        int wishlistID = (int)(session.getAttribute("wishlistID"));
-
-        Wish newWish = new Wish(title, price, url, description, wishlistID);
-        wr.addWishToDatabase(newWish);
-
-        return "redirect:/list";
     }
 
     @GetMapping("/404-error")
@@ -151,14 +163,12 @@ public class IndexController {
         return "jobOgKarriere";
     }
 
-    @PostMapping("/list")
-    public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
-        WishRepository rp = new WishRepository();
-        int currentWishlistID = Integer.parseInt(dataFromForm.getParameter("hidden"));
-        session.setAttribute("wishlistID", currentWishlistID);
-        ArrayList<Wish> wishes = rp.getAllWishesFromWishlistID(currentWishlistID);
-        allWishesForWishlist.addAttribute("allWishes", wishes);
-        return "list";
-    }
+   @PostMapping("/log-ud")
+   public String logOut(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+   }
+
+
 
 }

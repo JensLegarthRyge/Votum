@@ -6,18 +6,9 @@
     <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
 </head>
 <body>
+<div th:replace="fragments/general.html :: header()"></div>
+
 <section class="frontpage">
-    <header class="burger-bar">
-        <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
-        <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
-        <a>
-            <div class="burger-button">
-                <form method="GET" action="/">
-                 <button type="submit">Log ud</button>
-                </form>
-            </div>
-        </a>
-    </header>
     <div class="wishes">
         <div class="wish" th:each="Wish : ${allWishes}">
             <div class="wishHeader">

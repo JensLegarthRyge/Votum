@@ -6,17 +6,8 @@
     <link rel="stylesheet" th:href="@{stylesheet.css}" href="../static/stylesheet.css">
 </head>
 <body>
-    <header class="burger-bar">
-        <img class="headerNoLoginPic" src="https://imgur.com/PkYHt0S.png">
-        <img class="headerCenter" src="https://imgur.com/ZKmPOPp.png">
-        <a>
-            <div class="burger-button">
-                <form method="GET" action="/">
-                <button type="submit">Log ud</button>
-                </form>
-            </div>
-        </a>
-    </header>
+<div th:replace="fragments/general.html :: header()"></div>
+
     <section class="frontpage">
         <section class="content">
             <img class="votumHeader" src="https://imgur.com/tnFMOcC.png">
@@ -45,10 +36,9 @@
                 <button type="button" class="btn cancel" onclick="closeListForm()">Luk</button>
             </form>
         </section>
-
     </section>
 
-    <div th:replace="fragments/general.html :: footer()"></div>
+<div th:replace="fragments/general.html :: footer()"></div>
     <script>
         function createButton(context) {
             var button = document.createElement("button");
