@@ -1,5 +1,7 @@
 package com.example.votum.model;
-
+/*Wish klassen bliver når der bliver oprettet nye wishes og når wishes skal vises i en ønskeliste.
+Der er ikke så meget funktionalitet herinde, bare attributter, contructor, toString og getters.
+* */
 public class Wish {
     private int wishID;
     private String title;
@@ -58,12 +60,7 @@ public class Wish {
     }
 
     public String getLink() {
-        if (link.contains("http://www.")){
-            return link;
-        }
-        else {
-            return "http://www." + link;
-        }
+        return  link;
     }
 
     public String getDescription() {

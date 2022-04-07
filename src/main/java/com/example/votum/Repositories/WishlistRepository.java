@@ -5,13 +5,16 @@ import com.example.votum.model.Wishlist;
 import java.sql.*;
 import java.util.ArrayList;
 
+//I denne klasse har vi samlet de metoder som henter eller giver data videre der omhandler ønskelisterne.
 public class WishlistRepository {
     private final DatabaseConnectionManager dcm;
 
+    //Constructor til klassen som bare laver en connection til databasen.
     public WishlistRepository() {
         dcm = new DatabaseConnectionManager();
     }
 
+    //Metode som tager imod en integer og returnere en liste med de ønskelister som brugeren med dette ID tilhører.
     public ArrayList<Wishlist> getAllWishlistsFromUserID(int userID){
         ArrayList<Wishlist> allWishLists = new ArrayList<>();
         try {
@@ -32,6 +35,7 @@ public class WishlistRepository {
         } return allWishLists;
     }
 
+    //Metode som tilføjer en ønskeliste til databasen. Der tages i mod en String og en integer og der returneres ikke noget.
     public void addWishlistToDatabase(String title, int userID){
         try {
             Connection con = dcm.getConnectionToDatabase();
@@ -48,6 +52,7 @@ public class WishlistRepository {
         }
     }
 
+    //Metode som tager imod en String og en integer  og returnere en integer. Her findes ID'et på den wishlist som der søges efter på navn.
     public int getWishlistIDFromWishlistName(String wishlistName, int userID){
         ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
         int wishlistID = 0;
@@ -58,6 +63,7 @@ public class WishlistRepository {
         } return wishlistID;
     }
 
+    //Metode som tager imod en integer og returnere en liste med alle de ønskeliste ID'er som tilhører denne user.
     public ArrayList<Integer> getAllWishListIDsFromUserID(int userID){
         ArrayList<Wishlist> allWishlists = getAllWishlistsFromUserID(userID);
 

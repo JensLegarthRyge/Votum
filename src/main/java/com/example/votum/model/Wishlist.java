@@ -1,5 +1,7 @@
 package com.example.votum.model;
-
+/*Wishlist klassen bliver brugt til at lave ønskelister.
+Der er ikke så meget funktionalitet herinde, bare attributter, contructor,   og getters.
+* */
 public class Wishlist {
     private int wishlistID;
     private int FKUserId;

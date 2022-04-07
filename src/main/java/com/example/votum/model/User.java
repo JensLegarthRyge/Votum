@@ -2,7 +2,9 @@ package com.example.votum.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/*User klassen bliver brugt til at lave brugere når de opretter en ny profil.
+Der er ikke så meget funktionalitet herinde, bare attributter, contructor, toString og getters.
+* */
 public class User {
     private int userID;
     private String email;

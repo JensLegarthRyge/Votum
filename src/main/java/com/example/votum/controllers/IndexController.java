@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 @Controller
 public class IndexController {
+    //Vores indeks side
     @GetMapping("/")
     public String frontPage(HttpSession session) {
         if (null != session.getAttribute("userID")) {
@@ -32,6 +33,7 @@ public class IndexController {
         }
     }
 
+    //Side man kommer til når man er logget ind. Her vises alle ens ønskelister
     @GetMapping("/logged-in-frontpage")
     public String loggedInFrontpage(HttpSession session, Model wishlistModel){
         WishlistRepository wlr = new WishlistRepository();
@@ -43,6 +45,7 @@ public class IndexController {
         return "frontPage";
     }
 
+    //En postmapping der redirecter dig til logged-in-frontpage hvis de oplysninger du har indtastet mathcer med en User
     @PostMapping("/login-user")
     public String loginInfoUser(WebRequest dataFromForm, HttpSession session) {
         String email = dataFromForm.getParameter("email-ting");
@@ -58,6 +61,7 @@ public class IndexController {
         }
     }
 
+    //Postmapping som fjerne et ønske fra ønskelisten og redirecter tilbage til list
     @PostMapping ("/removeWish")
     public String removeWish(WebRequest dataFromForm,HttpSession session){
         WishRepository rp = new WishRepository();
@@ -67,6 +71,7 @@ public class IndexController {
 
     }
 
+    //Postmapping som opretter en bruger når denne bliver kaldt.
     @PostMapping("/create-user")
     public String createUserInfo(WebRequest dataFromForm,HttpSession session) {
         String email = dataFromForm.getParameter("create-email");
@@ -89,6 +94,7 @@ public class IndexController {
         }
     }
 
+    //Postmapping som opretter en wishlist og redirecter tilbage til logged-in-frontpage
     @PostMapping("/create-wishlist")
     public String wishListCreator (WebRequest dataFromForm, HttpSession session) {
         WishlistRepository wlr = new WishlistRepository();
@@ -102,6 +108,7 @@ public class IndexController {
         return "redirect:/logged-in-frontpage";
     }
 
+    //Postmapping som opretter et ønske og redirecter tilabge til list
     @PostMapping("/create-wish")
     public String wishCreator (WebRequest dataFromForm, HttpSession session) {
         WishRepository wr = new WishRepository();
@@ -136,26 +143,31 @@ public class IndexController {
         return "error";
     }
 
+    //Redirecter bare til cookiepolitik siden
     @GetMapping("/cookiepolitik")
     public String cookiepolitik(HttpSession session){
         return "cookiepolitik";
     }
 
+    //Redirecter bare til privatlivspolitik siden
     @GetMapping("/privatlivspolitik")
     public String privatlivspolitik(HttpSession session){
         return "privatlivspolitik";
     }
 
+    //Redirecter bare til kontakt siden
     @GetMapping("/kontakt")
     public String kontakt(HttpSession session){
         return "kontakt";
     }
 
+    //Redirecter bare til job og karriere siden
     @GetMapping("/jobOgKarriere")
     public String jobOgKarriere(HttpSession session){
         return "jobOgKarriere";
     }
 
+    //Requestmapping som viser alle ens ønsker baseret på hvilken ønskeliste man er inde på.
     @RequestMapping("/list")
     public String list(HttpSession session, Model allWishesForWishlist, WebRequest dataFromForm){
         WishRepository rp = new WishRepository();

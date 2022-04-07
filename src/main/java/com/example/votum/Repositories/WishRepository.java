@@ -7,14 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+//I denne klasse har vi samlet de metoder som henter eller giver data videre der omhandler ønsker.
 public class WishRepository {
     private final DatabaseConnectionManager dcm;
 
+    //Constructor til klassen som bare laver en connection til databasen.
     public WishRepository() {
         dcm = new DatabaseConnectionManager();
     }
 
+    //Metode som tager imod en integer og returnere en liste med ønsker som tilhører den ønskeliste der har det ID der kommer ind i parameteren.
     public ArrayList<Wish> getAllWishesFromWishlistID(int WishlistID){
         ArrayList<Wish> allWishes = new ArrayList<>();
         try {
@@ -40,6 +42,7 @@ public class WishRepository {
         } return allWishes;
     }
 
+    //Meotde som tager imod et ønske og tilføjer det til databsen. Den returnere ingenting.
     public void addWishToDatabase(Wish wish){
         try {
             Connection con = dcm.getConnectionToDatabase();
@@ -66,6 +69,7 @@ public class WishRepository {
         }
     }
 
+    //Metode som fjerne et ønske fra databasen baseret på det ID som den tager imod i parameteren.
     public void removeWishFromDatabase(int ID){
         try {
             Connection con = dcm.getConnectionToDatabase();

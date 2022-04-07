@@ -4,6 +4,7 @@ package com.example.votum.Repositories;
 import java.sql.*;
 
 public class DatabaseConnectionManager {
+    //Her connectes der til vores database med link, navn og kodeord.
 
     public Connection getConnectionToDatabase(){
         Connection con = null;

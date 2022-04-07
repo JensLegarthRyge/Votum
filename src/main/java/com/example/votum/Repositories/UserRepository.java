@@ -7,14 +7,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+//I denne klasse har vi samlet de metoder som henter eller giver data videre der omhandler enkelte brugere.
 public class UserRepository {
     private final DatabaseConnectionManager dcm;
 
+    //Constructor til klassen som bare laver en connection til databasen.
     public UserRepository() {
         dcm = new DatabaseConnectionManager();
     }
 
+    //Metode som tager imod ingen parameter og returnere en liste af alle users som den henter fra databasen.
     public ArrayList<User> getAllUsers(){
         ArrayList<User> allUsers = new ArrayList<>();
         try {
@@ -41,6 +43,7 @@ public class UserRepository {
         } return allUsers;
     }
 
+    //Metode som tilføjer en user til en database. Den tager imod en User som parameter og returnere ingenting.
     public void addUserToDatabase(User user){
         try {
             Connection con = dcm.getConnectionToDatabase();
@@ -64,6 +67,7 @@ public class UserRepository {
         }
     }
 
+    //Metodes som tjekker om login er valid. Dere tjekkes gennem databasen sådan så passwords forbliver inde i mySQL og ikke ryger rundt omkring.
     public boolean isLoginValid(String email, String password){
         boolean isLoginValid = false;
         try {
@@ -89,6 +93,8 @@ public class UserRepository {
 
     }
 
+    //Metode som bruges når der oprettes en bruger. Her tjekkes der om emailen allerede findes i databasen da der ikke kan være flere brugere med samme mailadressen
+    //Der tages en String i parameterne og der returneres en boolean.
     public boolean isMailTaken(String email){
         boolean isMailTaken = false;
         try {
@@ -113,6 +119,9 @@ public class UserRepository {
         } return isMailTaken;
     }
 
+
+    //I denne metode tages der imod en String (email) og så returneres der en Use-object som bliver lavet
+    //på baggrund af alle de oplysnigner som hører til denne email.
     public User getUserFromEmail(String userEmail){
         User userToReturn = null;
         try {
@@ -138,6 +147,4 @@ public class UserRepository {
             System.out.println("Mail is taken");
         } return userToReturn;
     }
-
-
 }
