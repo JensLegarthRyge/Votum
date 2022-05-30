@@ -45,6 +45,8 @@ public class IndexController {
         wishlistModel.addAttribute("allWishLists",allUserWishlists);
 
         return "frontPage";
+
+
     }
 
     //En postmapping der redirecter dig til logged-in-frontpage hvis de oplysninger du har indtastet mathcer med en User
